@@ -3,12 +3,17 @@ import { createSlice } from '@reduxjs/toolkit';
 export const pokemonSlice = createSlice({
     name: 'pokemon',
     initialState: {
+        matchingPokemon: [],
         // Maximum 2 types
         selectedTypes: [],
         // Maximum 2 types
         activeTypes: [],
         // Maximun 3 selection Array<(Array<types>)>
         lastSelections: [],
+
+        selectedPokemon: {
+            name: ''
+        },
 
         weaknessToTypes: [],
         superWeaknessToTypes: [],
@@ -19,12 +24,15 @@ export const pokemonSlice = createSlice({
         // Could be selected 2 types
         superEffectiveTypes: [],
         notVeryEffectiveTypes: [],
-        withoutEffectTypes: [],
-
-        pokemonListByType: [],
-        pokemonInPokedex: []
+        withoutEffectTypes: []
     },
     reducers: {
+        onSetMatchingPokemon: (state, action) => {
+            state.matchingPokemon = [...action.payload];
+        },
+        onClearMatchingPokemon: state => {
+            state.matchingPokemon = [];
+        },
         onAddSelectedType: (state, action) => {
             const exists = state.selectedTypes.some(type => type.name === action.payload.name);
 
@@ -35,22 +43,50 @@ export const pokemonSlice = createSlice({
         onRemoveSelectedType: (state, action) => {
             state.selectedTypes = state.selectedTypes.filter(type => type.name !== action.payload.name);
         },
-        onRemoveAllSelectedType: state => {
+        onRemoveSelectedTypes: state => {
             state.selectedTypes = [];
+        },
+        onRemoveAllInformation: state => {
+            state.matchingPokemon = [];
+            state.selectedTypes = [];
+            state.activeTypes = [];
+            state.lastSelections = [];
+            state.selectedPokemon = {
+                name: ''
+            };
+
+            state.weaknessToTypes = [];
+            state.superWeaknessToTypes = [];
+            state.resistantToTypes = [];
+            state.superResistantToTypes = [];
+            state.inmuneToTypes = [];
+
+            state.superEffectiveTypes = [];
+            state.notVeryEffectiveTypes = [];
+            state.withoutEffectTypes = [];
         },
         onSetActiveType: (state, action) => {
             state.activeTypes = [...action.payload];
         },
         onSetLastSelections: (state, action) => {
-            // const exists = state.lastSelections.some(selection => { });
-            if (state.activeTypes.length !== 0) {
-                if (state.lastSelections.length == 3) {
-                    state.lastSelections.pop();
-                    state.lastSelections.unshift(state.activeTypes);
+            const lastSelections = [...state.lastSelections];
+
+            if (action.payload.length !== 0) {
+                if (lastSelections.length == 3) {
+                    lastSelections.shift(); // Delete first element
+                    lastSelections.push(action.payload);
                 } else {
-                    state.lastSelections.push(state.activeTypes);
+                    lastSelections.push(action.payload);
                 }
             }
+
+            state.lastSelections = [...lastSelections];
+        },
+        onSetSelectedPokemon: (state, action) => {
+            state.selectedPokemon = { ...action.payload };
+        },
+        onRemoveSelectedPokemon: state => {
+            state.selectedPokemon = {};
         },
 
         onLoadWeaknessToTypes: (state, action) => {
@@ -82,7 +118,7 @@ export const pokemonSlice = createSlice({
             if (action.payload.firstType !== undefined) {
                 state.notVeryEffectiveTypes[0] = [...action.payload.firstType];
             }
-            
+
             if (action.payload.secondType !== undefined) {
                 state.notVeryEffectiveTypes[1] = [...action.payload.secondType];
             }
@@ -91,41 +127,36 @@ export const pokemonSlice = createSlice({
             if (action.payload.firstType !== undefined) {
                 state.withoutEffectTypes[0] = [...action.payload.firstType];
             }
-            
+
             if (action.payload.secondType !== undefined) {
                 state.withoutEffectTypes[1] = [...action.payload.secondType];
             }
-        },
-
-        onSetPokemonListByType: (state, action) => {
-            state.pokemonListByType = action.payload;
-        },
-        onSetPokemonInPokedex: (state, action) => {
-            state.pokemonInPokedex = action.payload;
         }
     }
 });
 
 export const {
+    onSetMatchingPokemon,
+    onClearMatchingPokemon,
     onAddSelectedType,
     onRemoveSelectedType,
-    onRemoveAllSelectedType,
+    onRemoveSelectedTypes,
+    onRemoveAllInformation,
     onSetActiveType,
     onSetLastSelections,
+    onSetSelectedPokemon,
+    onRemoveSelectedPokemon,
 
     onLoadWeaknessToTypes,
     onLoadSuperWeaknessToTypes,
     onLoadResistantToTypes,
     onLoadSuperResistantToTypes,
     onLoadInmuneToTypes,
-    
+
     onLoadSuperEffectiveTypes,
     onLoadNotVeryEffectiveTypes,
     onLoadWithoutEffectTypes,
-    
-    // PokemonApi
-    onSetPokemonListByType,
-    onSetPokemonInPokedex
+
 } = pokemonSlice.actions;
 
 // export default pokemonSlice.reducer

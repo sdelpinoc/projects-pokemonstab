@@ -1,6 +1,7 @@
 import { usePokemonStore } from '../hooks/usePokemonStore';
 
 const TypesList = ({ types, section }) => {
+    console.log('- - - Render TypesList - - -', section);
     const { addSelectedType, removeSelectedType } = usePokemonStore();
 
     const typesSection = (section === 'TypesSection' && true);
@@ -44,13 +45,13 @@ const TypesList = ({ types, section }) => {
             }
             {
                 (types !== undefined && types.length > 0)
-                    ? types.map((type, index) => (
+                    ? types.map((type) => (
                         <span
                             key={type.name + '-' + section}
                             className={`type ${type.className}`}
                             onClick={() => onSelectType(type)}
                         >
-                            {type.name}{(typesSection && index)}
+                            {type.name}
                             {showRemoveSpan && <span className="removeType" key={type.name + '-remove'} onClick={() => { onRemoveType(type) }}>x</span>}
                         </span>
                     ))

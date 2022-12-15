@@ -1,15 +1,18 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { pokemonApi } from '../apis/pokemonApi';
 
 import { types as typesDB } from '../data/types';
-import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveAllSelectedType, onRemoveSelectedType, onSetActiveType, onSetLastSelections, onSetPokemonInPokedex, onSetPokemonListByType, onLoadInmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes } from '../store/slices/pokemonSlice';
+import { pokemon as pokemonDB } from '../data/pokemon';
+
+import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onSetLastSelections, onLoadInmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon } from '../store/slices/pokemonSlice';
 
 export const usePokemonStore = () => {
 
     const {
+        matchingPokemon,
         selectedTypes,
         activeTypes,
         lastSelections,
+        selectedPokemon,
 
         weaknessToTypes,
         superWeaknessToTypes,
@@ -35,11 +38,21 @@ export const usePokemonStore = () => {
         dispatch(onRemoveSelectedType(type));
     };
 
-    const removeAllSelectedType = () => {
-        dispatch(onRemoveAllSelectedType());
+    const removeSelectedTypes = type => {
+        dispatch(onRemoveSelectedTypes());
+    };
+
+    const removeAllInformation = () => {
+        dispatch(onRemoveAllInformation());
+
+        document.querySelector('.typesSection').scrollIntoView({
+            behavior: 'smooth',
+        });
     };
 
     const setActiveType = types => {
+        removeSelectedPokemon();
+        clearMatchingPokemon();
         console.log('setActiveType - activeTypes: ', activeTypes);
         console.log('setActiveType - types: ', types);
         let isEqualFirstType = false;
@@ -65,8 +78,15 @@ export const usePokemonStore = () => {
             isEqualSecondType = true;
         }
 
+        setTimeout(() => {
+            console.log('scrollIntoView');
+            document.querySelector('.typesSelectionSection').scrollIntoView({
+                behavior: 'smooth',
+            });
+        }, 200);
+
         if (!isEqualFirstType || !isEqualSecondType) {
-            dispatch(onSetLastSelections());
+            // dispatch(onSetLastSelections(activeTypes));
 
             console.log('dispatch - onSetActiveType: ', types);
             dispatch(onSetActiveType(types));
@@ -186,7 +206,7 @@ export const usePokemonStore = () => {
             });
         }
 
-        const weaknessOverallTemp = {...weaknessOverall};
+        const weaknessOverallTemp = { ...weaknessOverall };
 
         for (const typeKey in weaknessOverall) {
             if (resistantOverall[typeKey]) {
@@ -250,7 +270,7 @@ export const usePokemonStore = () => {
         dispatch(onLoadResistantToTypes(resistantTo));
         dispatch(onLoadSuperResistantToTypes(supperResistantTo));
         dispatch(onLoadInmuneToTypes(inmuneTo));
-        
+
         // FirstType load
         // dispatch(onLoadWeaknessToTypes(weaknessToFirstType));
         // dispatch(onLoadResistantToTypes(resistantToFirstType));
@@ -315,104 +335,94 @@ export const usePokemonStore = () => {
         }
     };
 
-    const getPokemonListByType = async (pokemonTypeSelected = []) => {
-        console.log('getPokemon - pokemonTypeSelected: ', pokemonTypeSelected);
+    const getPokemonList = async (pokemon = '') => {
+        let matchingPokemon = [];
+        let pokemonList = [];
 
-        if (pokemonTypeSelected.length === 0) {
-            return;
+        if (pokemon.length === 0) {
+            pokemon = '---';
         }
 
-        try {
-            const { data } = await pokemonApi.get(`/type/${pokemonTypeSelected[0].name.toLowerCase()}`);
-            console.log('getPokemon - data.pokemon: ', data.pokemon);
+        console.log('getPokemonList - pokemon: ', pokemon);
+        const regExp = new RegExp(`^${pokemon.trim()}`, 'gmi');
 
-            // const pokemonLength = data.pokemon.length;
-
-            // const random = getRandomIntInclusive(0, pokemonLength - 1);
-            // console.log('random: ', random);
-            // console.log('name: ', data.pokemon[random].pokemon.name);
-
-            dispatch(onSetPokemonListByType(data.pokemon));
-
-        } catch (error) {
-            console.log('getPokemon - error: ', error);
-        }
-    };
-
-    const getPokemonInfo = async (pokemonList = '') => {
-        console.log('getPokemonInfo - pokemonList: ', pokemonList);
-
-        if (pokemonList.length === 0) {
-            return;
-        }
-
-        const pokemonLength = pokemonList.length;
-
-        const pokemonRandom = getRandomIntInclusive(0, pokemonLength - 1);
-        const nameSelected = pokemonList[pokemonRandom].pokemon.name;
-
-        console.log('pokemonRandom: ', pokemonRandom);
-        console.log('name: ', pokemonList[pokemonRandom].pokemon.name);
-
-        let defaultName = nameSelected;
-
-        // Exceptions
-        // if (nameSelected === 'meloetta-pirouette') {
-        //     nameSelected = 'meloetta-aria';
-        // } else if (nameSelected === 'nidoran-f') {
-        // } else {
-        // if (nameSelected.indexOf('-') !== -1) {
-        //     defaultName = nameSelected.substring(0, nameSelected.indexOf('-'));
-        // }
-        // }
-
-        console.log('defaultName: ', defaultName);
-
-        try {
-            const { data } = await pokemonApi.get(`/pokemon/${defaultName.toLowerCase()}`);
-            console.log('getPokemonInfo - data', data);
-
-            const { id, name, species, sprites: { other: { 'official-artwork': official_artwork } }, types } = data;
-            // console.log('sprites: ', sprites.other['official-artwork'].front_default);
-            console.log('official_artwork.front_default ', official_artwork.front_default);
-
-            dispatch(onSetPokemonInPokedex({
-                number: id,
-                nameRegion: name,
-                name: species.name,
-                url: species.url,
-                img: official_artwork.front_default,
-                types: types
-            }));
-
-            if (document.querySelector('dt.entry')) {
-                const entryPokedex = document.querySelector('dt.entry');
-                console.log('Change background-color', types);
-
-                if (types[0] !== undefined && types[1] !== undefined) {
-                    entryPokedex.style.setProperty('background', `linear-gradient(90deg, var(--type-${types[0].type.name}-background-color) 31%, var(--type-${types[1].type.name}-background-color) 100%)`);
-                    entryPokedex.style.removeProperty('background-color');
-                } else {
-                    entryPokedex.style.setProperty('background-color', `var(--type-${types[0].type.name}-background-color)`);
-                    entryPokedex.style.removeProperty('background');
-                }
+        matchingPokemon = pokemonDB.filter(({ name, lang }) => {
+            const existsName = name.match(regExp);
+            let existsNameEs = null;
+            if (lang && lang.es) {
+                existsNameEs = lang.es.name.match(regExp);
             }
-        } catch (error) {
-            console.log('getPokemon - error: ', error);
-        }
+
+            return (existsName !== null || existsNameEs !== null) ? true : false;
+        });
+
+        pokemonList = matchingPokemon.slice(0, 10);
+
+        const pokemonListWithImg = await Promise.all(pokemonList.map(async pokemon => {
+            const { ndex, name, forImg } = pokemon;
+            const baseUrlImg = '/img/pokemon/avatar/';
+
+            const nameForImg = name.replace(' ', '_');
+
+            // ndex
+            let imgUrl = baseUrlImg + `70px-${(ndex !== '') ? `${ndex}` : ''}`;
+            // name
+            imgUrl = imgUrl + `${(nameForImg !== undefined) ? nameForImg : ''}`;
+            // form(forImg)
+            imgUrl = imgUrl + `${(forImg !== undefined) ? `-${forImg}` : ''}`;
+            // extension
+            imgUrl += '.png';
+
+            // const checkImg = await checkIfImageExists(imgUrl);
+
+            // if (!checkImg) {
+            //     imgUrl = baseUrlImg + 'favicon.ico';
+            // }
+
+            return {
+                ...pokemon,
+                imgUrl
+            }
+        }));
+        console.log('getPokemonList - pokemonListWithImg: ', pokemonListWithImg);
+
+        dispatch(onSetMatchingPokemon(pokemonListWithImg));
     };
 
-    function getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
+    const clearMatchingPokemon = () => {
+        dispatch(onClearMatchingPokemon());
+    };
+
+    const setSelectedPokemon = (selectedPokemon) => {
+        dispatch(onSetSelectedPokemon(selectedPokemon));
+    };
+
+    const removeSelectedPokemon = () => {
+        dispatch(onRemoveSelectedPokemon());
     }
+
+    // const checkIfImageExists = async imgUrl => {
+    //     try {
+    //         const result = await fetch(imgUrl, { method: 'HEAD' })
+    //         console.log('checkIfImageExists - result: ', result);
+
+    //         if (result.ok) {
+    //             return true;
+    //         }
+
+    //         return false;
+    //     } catch (error) {
+    //         console.log('checkIfImageExists - error: ', error);
+    //     }
+    // }
 
     return {
         // Attributes
+        matchingPokemon,
         selectedTypes,
         activeTypes,
         lastSelections,
+        selectedPokemon,
 
         weaknessToTypes,
         superWeaknessToTypes,
@@ -429,11 +439,14 @@ export const usePokemonStore = () => {
 
         // Methods
         addSelectedType,
+        removeAllInformation,
         removeSelectedType,
-        removeAllSelectedType,
+        removeSelectedTypes,
         setActiveType,
         loadDetails,
-        getPokemonListByType,
-        getPokemonInfo
+        getPokemonList,
+        clearMatchingPokemon,
+        setSelectedPokemon,
+        removeSelectedPokemon
     };
 }
