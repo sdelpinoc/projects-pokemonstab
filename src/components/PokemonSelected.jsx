@@ -1,6 +1,4 @@
 const PokemonSelected = ({ selectedPokemon }) => {
-    console.log('- - PokemonSelected - -');
-    console.log('- - PokemonSelected - selectedPokemon: ', selectedPokemon);
     return (
         (selectedPokemon && selectedPokemon.name)
             ?

@@ -1,25 +1,19 @@
-import { useEffect } from 'react';
+import { usePokemonStore } from '../hooks/usePokemonStore';
+import { useBorderColor } from '../hooks/useBorderColor';
 
 import TypesList from './TypesList';
 
-const WeaknessResistInmuneTo = ({ activeTypes, weaknessToTypes, superWeaknessToTypes, resistantToTypes, superResistantToTypes, inmuneToTypes }) => {
+const WeaknessResistInmuneTo = () => {
+    const {
+        activeTypes,
+        weaknessToTypes,
+        superWeaknessToTypes,
+        resistantToTypes,
+        superResistantToTypes,
+        inmuneToTypes
+    } = usePokemonStore();
 
-    const activeTypeFirstName = (activeTypes[0]) ? activeTypes[0].name.toLowerCase() : '';
-    const activeTypeSecondName = (activeTypes[1]) ? activeTypes[1].name.toLowerCase() : '';
-
-    useEffect(() => {
-        const weaknessResistInmuneToSection = document.querySelector('.weaknessResistInmuneTo.section');
-
-        if (activeTypes[0] && activeTypes[1]) {
-            weaknessResistInmuneToSection.style.setProperty('border-image', `linear-gradient(to right, var(--type-${activeTypeFirstName}-background-color) 31%, var(--type-${activeTypeSecondName}-background-color) 100%) 1`);
-        } else if (activeTypes[0]) {
-            weaknessResistInmuneToSection.style.setProperty('border-color', `var(--type-${activeTypeFirstName}-background-color)`);
-            weaknessResistInmuneToSection.style.removeProperty('border-image');
-        } else {
-            weaknessResistInmuneToSection.style.removeProperty('border-image');
-            weaknessResistInmuneToSection.style.setProperty('border-color', `var(--pokedex-color-1)`);
-        }
-    }, [activeTypes]);
+    const [activeTypeFirstName, activeTypeSecondName] = useBorderColor(activeTypes);
 
     return (
         <div className={`weaknessResistInmuneTo section section-${activeTypeFirstName}-${activeTypeSecondName}`}>

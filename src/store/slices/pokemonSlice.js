@@ -24,7 +24,9 @@ export const pokemonSlice = createSlice({
         // Could be selected 2 types
         superEffectiveTypes: [],
         notVeryEffectiveTypes: [],
-        withoutEffectTypes: []
+        withoutEffectTypes: [],
+
+        loadingPokemonList: false
     },
     reducers: {
         onSetMatchingPokemon: (state, action) => {
@@ -37,7 +39,8 @@ export const pokemonSlice = createSlice({
             const exists = state.selectedTypes.some(type => type.name === action.payload.name);
 
             if (!exists && state.selectedTypes.length < 2) {
-                state.selectedTypes.push(action.payload);
+                // state.selectedTypes.push(action.payload);
+                state.selectedTypes = [...state.selectedTypes, action.payload];
             }
         },
         onRemoveSelectedType: (state, action) => {
@@ -131,6 +134,9 @@ export const pokemonSlice = createSlice({
             if (action.payload.secondType !== undefined) {
                 state.withoutEffectTypes[1] = [...action.payload.secondType];
             }
+        },
+        onSetLoadingPokemonList: (state, action) => {
+            state.loadingPokemonList = action.payload;
         }
     }
 });
@@ -157,6 +163,7 @@ export const {
     onLoadNotVeryEffectiveTypes,
     onLoadWithoutEffectTypes,
 
+    onSetLoadingPokemonList
 } = pokemonSlice.actions;
 
 // export default pokemonSlice.reducer

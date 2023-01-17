@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { types as typesDB } from '../data/types';
 import { pokemon as pokemonDB } from '../data/pokemon';
 
-import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onSetLastSelections, onLoadInmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon } from '../store/slices/pokemonSlice';
+import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onSetLastSelections, onLoadInmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList } from '../store/slices/pokemonSlice';
 
 export const usePokemonStore = () => {
 
@@ -24,8 +24,7 @@ export const usePokemonStore = () => {
         notVeryEffectiveTypes,
         withoutEffectTypes,
 
-        pokemonListByType,
-        pokemonInPokedex
+        loadingPokemonList
     } = useSelector(state => state.pokemon);
 
     const dispatch = useDispatch();
@@ -38,7 +37,7 @@ export const usePokemonStore = () => {
         dispatch(onRemoveSelectedType(type));
     };
 
-    const removeSelectedTypes = type => {
+    const removeSelectedTypes = () => {
         dispatch(onRemoveSelectedTypes());
     };
 
@@ -50,11 +49,10 @@ export const usePokemonStore = () => {
         });
     };
 
-    const setActiveType = types => {
+    const setActiveType = (types = []) => {
         removeSelectedPokemon();
         clearMatchingPokemon();
-        console.log('setActiveType - activeTypes: ', activeTypes);
-        console.log('setActiveType - types: ', types);
+
         let isEqualFirstType = false;
         let isEqualSecondType = false;
 
@@ -79,7 +77,6 @@ export const usePokemonStore = () => {
         }
 
         setTimeout(() => {
-            console.log('scrollIntoView');
             document.querySelector('.typesSelectionSection').scrollIntoView({
                 behavior: 'smooth',
             });
@@ -87,16 +84,12 @@ export const usePokemonStore = () => {
 
         if (!isEqualFirstType || !isEqualSecondType) {
             // dispatch(onSetLastSelections(activeTypes));
-
-            console.log('dispatch - onSetActiveType: ', types);
             dispatch(onSetActiveType(types));
-
-            return true;
         }
     };
 
     const loadDetails = () => {
-        // console.log('loadDetails - activeTypesSelected: ', activeTypesSelected);
+
         if (activeTypes.length === 0) {
             return;
         }
@@ -111,7 +104,6 @@ export const usePokemonStore = () => {
         const inmuneToSecondType = [];
 
         // Attacks to the selected Pokemon
-        // TODO: Applied posible 2 types
         activeTypesSelected[0].weaknessTo.forEach(element => {
             const weaknessToType = typesDB.filter(type => type.name === element);
 
@@ -154,8 +146,6 @@ export const usePokemonStore = () => {
         const resistantOverall = {};
         const inmuneOveral = {};
 
-        // console.log('weaknessToFirstType: ', weaknessToFirstType);
-        // Weakness(+1), resistant(-1)
         weaknessToFirstType.forEach(({ name }) => {
             if (!weaknessOverall[name]) {
                 weaknessOverall[name] = 1;
@@ -230,10 +220,6 @@ export const usePokemonStore = () => {
             }
         }
 
-        console.log('weaknessOverall: ', weaknessOverall);
-        console.log('resistantOverall: ', resistantOverall);
-        console.log('inmuneOveral: ', inmuneOveral);
-
         const weaknessTo = [];
         const resistantTo = [];
         const supperWeaknessTo = [];
@@ -261,9 +247,6 @@ export const usePokemonStore = () => {
             inmuneTo.push(typesDB.filter(type => type.name === typeKey)[0]);
         }
 
-        // console.log('weaknessTo: ', weaknessTo);
-        // console.log('supperWeaknessTo: ', supperWeaknessTo);
-
         // Overall load
         dispatch(onLoadWeaknessToTypes(weaknessTo));
         dispatch(onLoadSuperWeaknessToTypes(supperWeaknessTo));
@@ -271,17 +254,11 @@ export const usePokemonStore = () => {
         dispatch(onLoadSuperResistantToTypes(supperResistantTo));
         dispatch(onLoadInmuneToTypes(inmuneTo));
 
-        // FirstType load
-        // dispatch(onLoadWeaknessToTypes(weaknessToFirstType));
-        // dispatch(onLoadResistantToTypes(resistantToFirstType));
-        // dispatch(onLoadInmuneToTypes(inmuneToFirstType));
-
         // Against other Pokemon
         const superEffectiveFirstType = [];
         const notVeryEffectiveFirstType = [];
         const withoutEffectFirstType = [];
 
-        // TODO: For each selected type(Max 2)
         activeTypesSelected[0].superEffective.forEach(element => {
             const superEffectiveType = typesDB.filter(type => type.name === element);
 
@@ -336,6 +313,7 @@ export const usePokemonStore = () => {
     };
 
     const getPokemonList = async (pokemon = '') => {
+        dispatch(onSetLoadingPokemonList(true));
         let matchingPokemon = [];
         let pokemonList = [];
 
@@ -343,7 +321,6 @@ export const usePokemonStore = () => {
             pokemon = '---';
         }
 
-        console.log('getPokemonList - pokemon: ', pokemon);
         const regExp = new RegExp(`^${pokemon.trim()}`, 'gmi');
 
         matchingPokemon = pokemonDB.filter(({ name, lang }) => {
@@ -353,14 +330,14 @@ export const usePokemonStore = () => {
                 existsNameEs = lang.es.name.match(regExp);
             }
 
-            return (existsName !== null || existsNameEs !== null) ? true : false;
+            return (existsName !== null || existsNameEs !== null);
         });
 
         pokemonList = matchingPokemon.slice(0, 10);
 
         const pokemonListWithImg = await Promise.all(pokemonList.map(async pokemon => {
             const { ndex, name, forImg } = pokemon;
-            const baseUrlImg = '/img/pokemon/avatar/';
+            const baseUrlImg = './img/pokemon/avatar/';
 
             const nameForImg = name.replace(' ', '_');
 
@@ -384,9 +361,12 @@ export const usePokemonStore = () => {
                 imgUrl
             }
         }));
-        console.log('getPokemonList - pokemonListWithImg: ', pokemonListWithImg);
 
         dispatch(onSetMatchingPokemon(pokemonListWithImg));
+
+        setTimeout(() => {
+            dispatch(onSetLoadingPokemonList(false));
+        }, 500);
     };
 
     const clearMatchingPokemon = () => {
@@ -433,9 +413,8 @@ export const usePokemonStore = () => {
         superEffectiveTypes,
         notVeryEffectiveTypes,
         withoutEffectTypes,
-
-        pokemonListByType,
-        pokemonInPokedex,
+        
+        loadingPokemonList,
 
         // Methods
         addSelectedType,

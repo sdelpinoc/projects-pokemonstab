@@ -3,18 +3,10 @@ import { usePokemonStore } from '../hooks/usePokemonStore';
 import TypesList from './TypesList';
 
 const DetailsSection = () => {
-    console.log('- - - DetailsSection - - -');
-    const {
-        activeTypes,
-        weaknessToTypes, resistantToTypes,
-        superEffectiveTypes, notVeryEffectiveTypes, withoutEffectTypes
-    } = usePokemonStore();
-    // console.log('DetailsSection - weaknessToTypes: ', weaknessToTypes);
+    const { activeTypes, superEffectiveTypes, notVeryEffectiveTypes, withoutEffectTypes } = usePokemonStore();
 
     return (
         <div className="detailsSection">
-            {/* <h3>Details</h3> */}
-            {/* <WeaknessResistTo weaknessToTypes={weaknessToTypes} resistantToTypes={resistantToTypes} /> */}
             {
                 (activeTypes[0] !== undefined)
                     ?
@@ -51,14 +43,7 @@ const DetailsSection = () => {
                         <TypesList types={withoutEffectTypes[1]} section={'typesWithoutEffectTo'} />
                     </div>
                     :
-                    <>
-                        {/* <h5>It's super effective against(x2):</h5>
-                            <TypesList types={superEffectiveTypes[1]} section={'typesSuperEffective'} />
-                            <h5>It's not very effective against(x0.5):</h5>
-                            <TypesList types={notVeryEffectiveTypes[1]} section={'typesNotVeryEffective'} />
-                            <h5>Has no effect against:</h5>
-                            <TypesList types={inmuneToTypes[1]} section={'typesInmuneTo'} /> */}
-                    </>
+                    <></>
             }
         </div>
     )
