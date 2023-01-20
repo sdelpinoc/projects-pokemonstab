@@ -27,7 +27,7 @@ describe('Testing in <TypesSelectionSection />', () => {
                 <TypesSelectionSection />
             </Provider>
         );
-        screen.debug();
+        // screen.debug();
 
         expect(screen.getAllByText('-').length).toBe(6);
     });

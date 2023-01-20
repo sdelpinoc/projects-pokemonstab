@@ -28,7 +28,7 @@ describe('Testing in <DetailsSection />', () => {
                 <DetailsSection />
             </Provider>
         );
-        screen.debug();
+        // screen.debug();
 
         expect(screen.getAllByText('-').length).toBe(3);
     });

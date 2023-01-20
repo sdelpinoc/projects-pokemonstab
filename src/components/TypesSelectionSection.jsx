@@ -8,16 +8,10 @@ import WeaknessResistInmuneTo from './WeaknessResistInmuneTo';
 import PokemonSelected from './PokemonSelected';
 
 const TypesSelectionSection = () => {
-
     const { activeTypes, selectedPokemon, loadDetails } = usePokemonStore(); // lastSelections,
-    // console.log('TypesSelectionSection - lastSelections: ', lastSelections);
-
     useEffect(() => {
         loadDetails();
     }, [activeTypes]);
-
-    // const lastSelectionsShow = [...lastSelections];
-    // const lastSelectionsReverse = (lastSelectionsShow) ? lastSelectionsShow.reverse() : [];
 
     return (
         <div className="typesSelectionSection">

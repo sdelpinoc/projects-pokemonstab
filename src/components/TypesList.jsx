@@ -22,7 +22,6 @@ const TypesList = ({ types, section }) => {
                 ((section === 'typesSuperWeaknessTo') && <img src="./img/pokemon/stadistics/25px-X4.png" />)
             }
             {
-
                 ((section === 'typesWeaknessTo') && <img src="./img/pokemon/stadistics/25px-X2.png" />)
             }
             {

@@ -21,7 +21,6 @@ const PokemonSelected = ({ selectedPokemon }) => {
 
                                 </dd>
                             : <></>
-
                     }
                 </dl>
             </div>

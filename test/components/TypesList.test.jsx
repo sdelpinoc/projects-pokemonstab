@@ -62,11 +62,11 @@ describe('Testing in <TypesList />', () => {
                 <TypesList types={[types[1]]} section={'SelectedType'}/>
             </Provider>
         );
-        screen.debug();
+        // screen.debug();
         
         const typeSelected = screen.getByText('x');
         fireEvent.click(typeSelected);
-        screen.debug();
+        // screen.debug();
 
         expect(mockRemoveSelectedType).toHaveBeenCalledTimes(1);
 

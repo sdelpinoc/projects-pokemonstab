@@ -5578,421 +5578,421 @@ export const pokemon = [
         types: ['Fairy', 'Flying']
     },
     {
-        ndex: '',
+        ndex: '906',
         name: 'Sprigatito',
         types: ['Grass']
     },
     {
-        ndex: '',
+        ndex: '907',
         name: 'Floragato',
         types: ['Grass']
     },
     {
-        ndex: '',
+        ndex: '908',
         name: 'Meowscarada',
         types: ['Grass', 'Dark']
     },
     {
-        ndex: '',
+        ndex: '909',
         name: 'Fuecoco',
         types: ['Fire']
     },
     {
-        ndex: '',
+        ndex: '910',
         name: 'Crocalor',
         types: ['Fire']
     },
     {
-        ndex: '',
+        ndex: '911',
         name: 'Skeledirge',
         types: ['Fire', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '912',
         name: 'Quaxly',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '913',
         name: 'Quaxwell',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '914',
         name: 'Quaquaval',
         types: ['Water', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '915',
         name: 'Lechonk',
         types: ['Normal']
     },
     {
-        ndex: '',
+        ndex: '916',
         name: 'Oinkologne',
         types: ['Normal']
     },
     {
-        ndex: '',
+        ndex: '917',
         name: 'Tarountula',
         types: ['Bug']
     },
     {
-        ndex: '',
+        ndex: '918',
         name: 'Spidops',
         types: ['Bug']
     },
     {
-        ndex: '',
+        ndex: '919',
         name: 'Nymble',
         types: ['Bug']
     },
     {
-        ndex: '',
+        ndex: '920',
         name: 'Lokix',
         types: ['Bug', 'Dark']
     },
     {
-        ndex: '',
+        ndex: '921',
         name: 'Pawmi',
         types: ['Electric']
     },
     {
-        ndex: '',
+        ndex: '922',
         name: 'Pawmo',
         types: ['Electric', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '923',
         name: 'Pawmot',
         types: ['Electric', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '924',
         name: 'Tandemaus',
         types: ['Normal']
     },
     {
-        ndex: '',
+        ndex: '925',
         name: 'Maushold',
         types: ['Normal']
     },
     {
-        ndex: '',
+        ndex: '926',
         name: 'Fidough',
         types: ['Fairy']
     },
     {
-        ndex: '',
+        ndex: '927',
         name: 'Dachsbun',
         types: ['Fairy']
     },
     {
-        ndex: '',
+        ndex: '928',
         name: 'Smoliv',
         types: ['Grass', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '929',
         name: 'Dolliv',
         types: ['Grass', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '930',
         name: 'Arboliva',
         types: ['Grass', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '931',
         name: 'Squawkabilly',
         types: ['Normal', 'Flying']
     },
     {
-        ndex: '',
+        ndex: '932',
         name: 'Nacli',
         types: ['Rock']
     },
     {
-        ndex: '',
+        ndex: '933',
         name: 'Naclstack',
         types: ['Rock']
     },
     {
-        ndex: '',
+        ndex: '934',
         name: 'Garganacl',
         types: ['Rock']
     },
     {
-        ndex: '',
+        ndex: '935',
         name: 'Charcadet',
         types: ['Fire']
     },
     {
-        ndex: '',
+        ndex: '936',
         name: 'Armarouge',
         types: ['Fire', 'Psychic']
     },
     {
-        ndex: '',
+        ndex: '937',
         name: 'Ceruledge',
         types: ['Fire', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '938',
         name: 'Tadbulb',
         types: ['Electric']
     },
     {
-        ndex: '',
+        ndex: '939',
         name: 'Bellibolt',
         types: ['Electric']
     },
     {
-        ndex: '',
+        ndex: '940',
         name: 'Wattrel',
         types: ['Electric', 'Flying']
     },
     {
-        ndex: '',
+        ndex: '941',
         name: 'Kilowattrel',
         types: ['Electric', 'Flying']
     },
     {
-        ndex: '',
+        ndex: '942',
         name: 'Maschiff',
         types: ['Dark']
     },
     {
-        ndex: '',
+        ndex: '943',
         name: 'Mabosstiff',
         types: ['Dark']
     },
     {
-        ndex: '',
+        ndex: '944',
         name: 'Shroodle',
         types: ['Poison', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '945',
         name: 'Grafaiai',
         types: ['Poison', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '946',
         name: 'Bramblin',
         types: ['Grass', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '947',
         name: 'Brambleghast',
         types: ['Grass', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '948',
         name: 'Toedscool',
         types: ['Ground', 'Grass']
     },
     {
-        ndex: '',
+        ndex: '949',
         name: 'Toedscruel',
         types: ['Ground', 'Grass']
     },
     {
-        ndex: '',
+        ndex: '950',
         name: 'Klawf',
         types: ['Rock']
     },
     {
-        ndex: '',
+        ndex: '951',
         name: 'Capsakid',
         types: ['Grass']
     },
     {
-        ndex: '',
+        ndex: '952',
         name: 'Scovillain',
         types: ['Grass', 'Fire']
     },
     {
-        ndex: '',
+        ndex: '953',
         name: 'Rellor',
         types: ['Bug']
     },
     {
-        ndex: '',
+        ndex: '954',
         name: 'Rabsca',
         types: ['Bug', 'Psychic']
     },
     {
-        ndex: '',
+        ndex: '955',
         name: 'Flittle',
         types: ['Psychic']
     },
     {
-        ndex: '',
+        ndex: '956',
         name: 'Espathra',
         types: ['Psychic']
     },
     {
-        ndex: '',
+        ndex: '957',
         name: 'Tinkatink',
         types: ['Fairy', 'Steel']
     },
     {
-        ndex: '',
+        ndex: '958',
         name: 'Tinkatuff',
         types: ['Fairy', 'Steel']
     },
     {
-        ndex: '',
+        ndex: '959',
         name: 'Tinkaton',
         types: ['Fairy', 'Steel']
     },
     {
-        ndex: '',
+        ndex: '960',
         name: 'Wiglett',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '961',
         name: 'Wugtrio',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '962',
         name: 'Bombirdier',
         types: ['Flying', 'Dark']
     },
     {
-        ndex: '',
+        ndex: '963',
         name: 'Finizen',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '964',
         name: 'Palafin',
         forImg: 'Zero',
         form: 'Zero Form',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '964',
         name: 'Palafin',
         forImg: 'Hero',
         form: 'Hero Form',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '965',
         name: 'Varoom',
         types: ['Steel', 'Poison']
     },
     {
-        ndex: '',
+        ndex: '966',
         name: 'Revavroom',
         types: ['Steel', 'Poison']
     },
     {
-        ndex: '',
+        ndex: '967',
         name: 'Cyclizar',
         types: ['Dragon', 'Normal']
     },
     {
-        ndex: '',
+        ndex: '968',
         name: 'Orthworm',
         types: ['Steel']
     },
     {
-        ndex: '',
+        ndex: '969',
         name: 'Glimmet',
         types: ['Rock', 'Poison']
     },
     {
-        ndex: '',
+        ndex: '970',
         name: 'Glimmora',
         types: ['Rock', 'Poison']
     },
     {
-        ndex: '',
+        ndex: '971',
         name: 'Greavard',
         types: ['Ghost']
     },
     {
-        ndex: '',
+        ndex: '972',
         name: 'Houndstone',
         types: ['Ghost']
     },
     {
-        ndex: '',
+        ndex: '973',
         name: 'Flamigo',
         types: ['Flying', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '974',
         name: 'Cetoddle',
         types: ['Ice']
     },
     {
-        ndex: '',
+        ndex: '975',
         name: 'Cetitan',
         types: ['Ice']
     },
     {
-        ndex: '',
+        ndex: '976',
         name: 'Veluza',
         types: ['Water', 'Psychic']
     },
     {
-        ndex: '',
+        ndex: '977',
         name: 'Dondozo',
         types: ['Water']
     },
     {
-        ndex: '',
+        ndex: '978',
         name: 'Tatsugiri',
         form: 'Curly Form',
         types: ['Dragon', 'Water']
     },
     {
-        ndex: '',
+        ndex: '978',
         name: 'Tatsugiri',
         forImg: 'Droopy',
         form: 'Droopy Form',
         types: ['Dragon', 'Water']
     },
     {
-        ndex: '',
+        ndex: '978',
         name: 'Tatsugiri',
         forImg: 'Stretchy',
         form: 'Stretchy Form',
         types: ['Dragon', 'Water']
     },
     {
-        ndex: '',
+        ndex: '979',
         name: 'Annihilape',
         types: ['Fighting', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '980',
         name: 'Clodsire',
         types: ['Poison', 'Ground']
     },
     {
-        ndex: '',
+        ndex: '981',
         name: 'Farigiraf',
         types: ['Normal', 'Psychic']
     },
     {
-        ndex: '',
+        ndex: '982',
         name: 'Dudunsparce',
         types: ['Normal']
     },
     {
-        ndex: '',
+        ndex: '983',
         name: 'Kingambit',
         types: ['Dark', 'Steel']
     },
     {
-        ndex: '',
+        ndex: '984',
         name: 'Great Tusk',
         lang: {
             es: {
@@ -6002,7 +6002,7 @@ export const pokemon = [
         types: ['Ground', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '985',
         name: 'Scream Tail',
         lang: {
             es: {
@@ -6012,7 +6012,7 @@ export const pokemon = [
         types: ['Fairy', 'Psychic']
     },
     {
-        ndex: '',
+        ndex: '986',
         name: 'Brute Bonnet',
         lang: {
             es: {
@@ -6022,7 +6022,7 @@ export const pokemon = [
         types: ['Grass', 'Dark']
     },
     {
-        ndex: '',
+        ndex: '987',
         name: 'Flutter Mane',
         lang: {
             es: {
@@ -6032,7 +6032,7 @@ export const pokemon = [
         types: ['Ghost', 'Fairy']
     },
     {
-        ndex: '',
+        ndex: '988',
         name: 'Slither Wing',
         lang: {
             es: {
@@ -6042,7 +6042,7 @@ export const pokemon = [
         types: ['Bug', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '989',
         name: 'Sandy Shocks',
         lang: {
             es: {
@@ -6052,7 +6052,7 @@ export const pokemon = [
         types: ['Electric', 'Ground']
     },
     {
-        ndex: '',
+        ndex: '990',
         name: 'Iron Treads',
         lang: {
             es: {
@@ -6062,7 +6062,7 @@ export const pokemon = [
         types: ['Ground', 'Steel']
     },
     {
-        ndex: '',
+        ndex: '991',
         name: 'Iron Bundle',
         lang: {
             es: {
@@ -6072,7 +6072,7 @@ export const pokemon = [
         types: ['Ice', 'Water']
     },
     {
-        ndex: '',
+        ndex: '992',
         name: 'Iron Hands',
         lang: {
             es: {
@@ -6082,7 +6082,7 @@ export const pokemon = [
         types: ['Fighting', 'Electric']
     },
     {
-        ndex: '',
+        ndex: '993',
         name: 'Iron Jugulis',
         lang: {
             es: {
@@ -6092,7 +6092,7 @@ export const pokemon = [
         types: ['Dark', 'Flying']
     },
     {
-        ndex: '',
+        ndex: '994',
         name: 'Iron Moth',
         lang: {
             es: {
@@ -6102,7 +6102,7 @@ export const pokemon = [
         types: ['Fire', 'Poison']
     },
     {
-        ndex: '',
+        ndex: '995',
         name: 'Iron Thorns',
         lang: {
             es: {
@@ -6112,60 +6112,60 @@ export const pokemon = [
         types: ['Rock', 'Electric']
     },
     {
-        ndex: '',
+        ndex: '996',
         name: 'Frigibax',
         types: ['Dragon', 'Ice']
     },
     {
-        ndex: '',
+        ndex: '997',
         name: 'Arctibax',
         types: ['Dragon', 'Ice']
     },
     {
-        ndex: '',
+        ndex: '998',
         name: 'Baxcalibur',
         types: ['Dragon', 'Ice']
     },
     {
-        ndex: '',
+        ndex: '999',
         name: 'Gimmighoul',
         form: 'Chest Form',
         types: ['Ghost']
     },
     {
-        ndex: '',
+        ndex: '999',
         name: 'Gimmighoul',
         forImg: 'Roaming',
         form: 'Roaming Form',
         types: ['Ghost']
     },
     {
-        ndex: '',
+        ndex: '1000',
         name: 'Gholdengo',
         types: ['Steel', 'Ghost']
     },
     {
-        ndex: '',
+        ndex: '1001',
         name: 'Wo-Chien',
         types: ['Dark', 'Grass']
     },
     {
-        ndex: '',
+        ndex: '1002',
         name: 'Chien-Pao',
         types: ['Dark', 'Ice']
     },
     {
-        ndex: '',
+        ndex: '1003',
         name: 'Ting-Lu',
         types: ['Dark', 'Ground']
     },
     {
-        ndex: '',
+        ndex: '1004',
         name: 'Chi-Yu',
         types: ['Dark', 'Fire']
     },
     {
-        ndex: '',
+        ndex: '1005',
         name: 'Roaring Moon',
         lang: {
             es: {
@@ -6175,7 +6175,7 @@ export const pokemon = [
         types: ['Dragon', 'Dark']
     },
     {
-        ndex: '',
+        ndex: '1006',
         name: 'Iron Valiant',
         lang: {
             es: {
@@ -6185,12 +6185,12 @@ export const pokemon = [
         types: ['Fairy', 'Fighting']
     },
     {
-        ndex: '',
+        ndex: '1007',
         name: 'Koraidon',
         types: ['Fighting', 'Dragon']
     },
     {
-        ndex: '',
+        ndex: '1008',
         name: 'Miraidon',
         types: ['Electric', 'Dragon']
     }
