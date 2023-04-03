@@ -6193,5 +6193,25 @@ export const pokemon = [
         ndex: '1008',
         name: 'Miraidon',
         types: ['Electric', 'Dragon']
-    }
+    },
+    {
+        ndex: '1009',
+        name: 'Walking Wake',
+        lang: {
+            es: {
+                name: 'Ondulagua',
+            }
+        },
+        types: ['Water', 'Dragon']
+    },
+    {
+        ndex: '1010',
+        name: 'Iron Leaves',
+        lang: {
+            es: {
+                name: 'Ferroverdor',
+            }
+        },
+        types: ['Grass', 'Psychic']
+    },
 ];
