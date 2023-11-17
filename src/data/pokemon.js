@@ -4414,12 +4414,6 @@ export const pokemon = [
     types: ['Fairy']
   },
   {
-    ndex: '716',
-    name: 'Xerneas',
-    form: 'Active Mode',
-    types: ['Fairy']
-  },
-  {
     ndex: '717',
     name: 'Yveltal',
     types: ['Dark', 'Flying']
