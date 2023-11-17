@@ -3,7 +3,7 @@ import { useEffect } from 'react'
 import { usePokemonStore } from '../hooks/usePokemonStore'
 
 import TypesList from './TypesList'
-import WeaknessResistInmuneTo from './WeaknessResistInmuneTo'
+import WeaknessResistImmuneTo from './WeaknessResistImmuneTo'
 import PokemonSelected from './PokemonSelected'
 
 const TypesSelectionSection = () => {
@@ -18,7 +18,7 @@ const TypesSelectionSection = () => {
       <TypesList types={activeTypes} section={'activeTypes'} />
       {/* <LastSelections lastSelectionsReverse={lastSelectionsReverse} /> */}
       <PokemonSelected selectedPokemon={selectedPokemon} />
-      <WeaknessResistInmuneTo />
+      <WeaknessResistImmuneTo />
     </div>
   )
 }

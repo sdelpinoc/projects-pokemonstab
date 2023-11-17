@@ -3,20 +3,20 @@ import { useBorderColor } from '../hooks/useBorderColor'
 
 import TypesList from './TypesList'
 
-const WeaknessResistInmuneTo = () => {
+const WeaknessResistImmuneTo = () => {
   const {
     activeTypes,
     weaknessToTypes,
     superWeaknessToTypes,
     resistantToTypes,
     superResistantToTypes,
-    inmuneToTypes
+    ImmuneToTypes
   } = usePokemonStore()
 
   const [activeTypeFirstName, activeTypeSecondName] = useBorderColor(activeTypes)
 
   return (
-    <div className={`weaknessResistInmuneTo section section-${activeTypeFirstName}-${activeTypeSecondName}`}>
+    <div className={`weaknessResistImmuneTo section section-${activeTypeFirstName}-${activeTypeSecondName}`}>
       <h2>
         {
           (activeTypeFirstName && <span className={`section-${activeTypeFirstName}`}>{activeTypes[0].name}</span>)
@@ -35,9 +35,9 @@ const WeaknessResistInmuneTo = () => {
       <h5>Super resistance to(x0.25):</h5>
       <TypesList types={superResistantToTypes} section={'typesSuperResistantTo'} />
       <h5>Inmunity to(x0):</h5>
-      <TypesList types={inmuneToTypes} section={'typesInmuneTo'} />
+      <TypesList types={ImmuneToTypes} section={'typesImmuneTo'} />
     </div>
   )
 }
 
-export default WeaknessResistInmuneTo
+export default WeaknessResistImmuneTo

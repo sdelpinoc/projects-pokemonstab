@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { types as typesDB } from '../data/types'
 import { pokemon as pokemonDB } from '../data/pokemon'
 
-import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onLoadInmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList } from '../store/slices/pokemonSlice'
+import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onLoadImmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList } from '../store/slices/pokemonSlice'
 
 export const usePokemonStore = () => {
   const {
@@ -17,7 +17,7 @@ export const usePokemonStore = () => {
     superWeaknessToTypes,
     resistantToTypes,
     superResistantToTypes,
-    inmuneToTypes,
+    ImmuneToTypes,
 
     superEffectiveTypes,
     notVeryEffectiveTypes,
@@ -97,8 +97,8 @@ export const usePokemonStore = () => {
     const resistantToFirstType = []
     const weaknessToSecondType = []
     const resistantToSecondType = []
-    const inmuneToFirstType = []
-    const inmuneToSecondType = []
+    const ImmuneToFirstType = []
+    const ImmuneToSecondType = []
 
     // Attacks to the selected Pokemon
     activeTypesSelected[0].weaknessTo.forEach(element => {
@@ -113,10 +113,10 @@ export const usePokemonStore = () => {
       resistantToFirstType.push(resistantToType[0])
     })
 
-    activeTypesSelected[0].inmuneTo.forEach(element => {
-      const inmuneToType = typesDB.filter(type => type.name === element)
+    activeTypesSelected[0].ImmuneTo.forEach(element => {
+      const ImmuneToType = typesDB.filter(type => type.name === element)
 
-      inmuneToFirstType.push(inmuneToType[0])
+      ImmuneToFirstType.push(ImmuneToType[0])
     })
 
     if (activeTypesSelected[1] !== undefined) {
@@ -132,16 +132,16 @@ export const usePokemonStore = () => {
         resistantToSecondType.push(resistantToType[0])
       })
 
-      activeTypesSelected[1].inmuneTo.forEach(element => {
-        const inmuneToType = typesDB.filter(type => type.name === element)
+      activeTypesSelected[1].ImmuneTo.forEach(element => {
+        const ImmuneToType = typesDB.filter(type => type.name === element)
 
-        inmuneToSecondType.push(inmuneToType[0])
+        ImmuneToSecondType.push(ImmuneToType[0])
       })
     }
 
     const weaknessOverall = {}
     const resistantOverall = {}
-    const inmuneOveral = {}
+    const ImmuneOverall = {}
 
     weaknessToFirstType.forEach(({ name }) => {
       if (!weaknessOverall[name]) {
@@ -159,11 +159,11 @@ export const usePokemonStore = () => {
       }
     })
 
-    inmuneToFirstType.forEach(({ name }) => {
-      if (!inmuneOveral[name]) {
-        inmuneOveral[name] = 1
+    ImmuneToFirstType.forEach(({ name }) => {
+      if (!ImmuneOverall[name]) {
+        ImmuneOverall[name] = 1
       } else {
-        inmuneOveral[name] = inmuneOveral[name] + 1
+        ImmuneOverall[name] = ImmuneOverall[name] + 1
       }
     })
 
@@ -184,11 +184,11 @@ export const usePokemonStore = () => {
         }
       })
 
-      inmuneToSecondType.forEach(({ name }) => {
-        if (!inmuneOveral[name]) {
-          inmuneOveral[name] = 1
+      ImmuneToSecondType.forEach(({ name }) => {
+        if (!ImmuneOverall[name]) {
+          ImmuneOverall[name] = 1
         } else {
-          inmuneOveral[name] = inmuneOveral[name] + 1
+          ImmuneOverall[name] = ImmuneOverall[name] + 1
         }
       })
     }
@@ -207,7 +207,7 @@ export const usePokemonStore = () => {
       }
     }
 
-    for (const typeKey in inmuneOveral) {
+    for (const typeKey in ImmuneOverall) {
       if (weaknessOverall[typeKey]) {
         weaknessOverall[typeKey] = 0
       }
@@ -221,7 +221,7 @@ export const usePokemonStore = () => {
     const resistantTo = []
     const supperWeaknessTo = []
     const supperResistantTo = []
-    const inmuneTo = []
+    const ImmuneTo = []
 
     for (const typeKey in weaknessOverall) {
       if (weaknessOverall[typeKey] === 2) {
@@ -239,8 +239,8 @@ export const usePokemonStore = () => {
       }
     }
 
-    for (const typeKey in inmuneOveral) {
-      inmuneTo.push(typesDB.filter(type => type.name === typeKey)[0])
+    for (const typeKey in ImmuneOverall) {
+      ImmuneTo.push(typesDB.filter(type => type.name === typeKey)[0])
     }
 
     // Overall load
@@ -248,7 +248,7 @@ export const usePokemonStore = () => {
     dispatch(onLoadSuperWeaknessToTypes(supperWeaknessTo))
     dispatch(onLoadResistantToTypes(resistantTo))
     dispatch(onLoadSuperResistantToTypes(supperResistantTo))
-    dispatch(onLoadInmuneToTypes(inmuneTo))
+    dispatch(onLoadImmuneToTypes(ImmuneTo))
 
     // Against other Pokemon
     const superEffectiveFirstType = []
@@ -277,7 +277,7 @@ export const usePokemonStore = () => {
     dispatch(onLoadNotVeryEffectiveTypes({ firstType: notVeryEffectiveFirstType }))
     dispatch(onLoadWithoutEffectTypes({ firstType: withoutEffectFirstType }))
 
-    const superEffectiveSecondtType = []
+    const superEffectiveSecondType = []
     const notVeryEffectiveSecondType = []
     const withoutEffectSecondType = []
 
@@ -287,7 +287,7 @@ export const usePokemonStore = () => {
       activeTypesSelected[1].superEffective.forEach(element => {
         const superEffectiveType = typesDB.filter(type => type.name === element)
 
-        superEffectiveSecondtType.push(superEffectiveType[0])
+        superEffectiveSecondType.push(superEffectiveType[0])
       })
 
       activeTypesSelected[1].notVeryEffective.forEach(element => {
@@ -302,7 +302,7 @@ export const usePokemonStore = () => {
         withoutEffectSecondType.push(withoutEffectType[0])
       })
 
-      dispatch(onLoadSuperEffectiveTypes({ secondType: superEffectiveSecondtType }))
+      dispatch(onLoadSuperEffectiveTypes({ secondType: superEffectiveSecondType }))
       dispatch(onLoadNotVeryEffectiveTypes({ secondType: notVeryEffectiveSecondType }))
       dispatch(onLoadWithoutEffectTypes({ secondType: withoutEffectSecondType }))
     }
@@ -404,7 +404,7 @@ export const usePokemonStore = () => {
     superWeaknessToTypes,
     resistantToTypes,
     superResistantToTypes,
-    inmuneToTypes,
+    ImmuneToTypes,
 
     superEffectiveTypes,
     notVeryEffectiveTypes,

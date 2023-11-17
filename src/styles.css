@@ -511,14 +511,14 @@ dl.pokedex {
   margin-bottom: 0.5em;
 }
 
-.weaknessResistInmuneTo.section {
+.weaknessResistImmuneTo.section {
   border: 4px solid var(--pokedex-color-1);
   border-radius: 0;
   padding: 1em 0.2em 0.2em;
   margin-top: 1em;
 }
 
-.weaknessResistInmuneTo.section h2 span {
+.weaknessResistImmuneTo.section h2 span {
   border: 0;
 }
 
@@ -660,7 +660,7 @@ dl.pokedex {
 .typesList.typesSuperWeaknessTo,
 .typesList.typesSuperResistantTo,
 .typesList.typesResistantTo,
-.typesList.typesInmuneTo,
+.typesList.typesImmuneTo,
 .typesList.typesSuperEffective,
 .typesList.typesNotVeryEffective,
 .typesList.typesWithoutEffectTo {

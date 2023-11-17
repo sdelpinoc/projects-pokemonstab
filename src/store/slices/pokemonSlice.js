@@ -17,7 +17,7 @@ export const pokemonSlice = createSlice({
     superWeaknessToTypes: [],
     resistantToTypes: [],
     superResistantToTypes: [],
-    inmuneToTypes: [],
+    ImmuneToTypes: [],
 
     // Could be selected 2 types
     superEffectiveTypes: [],
@@ -60,7 +60,7 @@ export const pokemonSlice = createSlice({
       state.superWeaknessToTypes = []
       state.resistantToTypes = []
       state.superResistantToTypes = []
-      state.inmuneToTypes = []
+      state.ImmuneToTypes = []
 
       state.superEffectiveTypes = []
       state.notVeryEffectiveTypes = []
@@ -88,8 +88,8 @@ export const pokemonSlice = createSlice({
     onLoadSuperResistantToTypes: (state, action) => {
       state.superResistantToTypes = [...action.payload]
     },
-    onLoadInmuneToTypes: (state, action) => {
-      state.inmuneToTypes = [...action.payload]
+    onLoadImmuneToTypes: (state, action) => {
+      state.ImmuneToTypes = [...action.payload]
     },
 
     onLoadSuperEffectiveTypes: (state, action) => {
@@ -140,7 +140,7 @@ export const {
   onLoadSuperWeaknessToTypes,
   onLoadResistantToTypes,
   onLoadSuperResistantToTypes,
-  onLoadInmuneToTypes,
+  onLoadImmuneToTypes,
 
   onLoadSuperEffectiveTypes,
   onLoadNotVeryEffectiveTypes,

@@ -5,7 +5,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fighting'],
     resistantTo: [],
-    inmuneTo: ['Ghost'],
+    ImmuneTo: ['Ghost'],
     superEffective: [],
     notVeryEffective: ['Rock', 'Steel'],
     withoutEffect: ['Ghost']
@@ -16,7 +16,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Ground', 'Rock', 'Water'],
     resistantTo: ['Bug', 'Steel', 'Fire', 'Grass', 'Ice', 'Fairy'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Bug', 'Steel', 'Grass', 'Ice'],
     notVeryEffective: ['Rock', 'Fire', 'Water', 'Dragon'],
     withoutEffect: []
@@ -27,7 +27,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Grass', 'Electric'],
     resistantTo: ['Steel', 'Fire', 'Water', 'Ice'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Ground', 'Rock', 'Fire'],
     notVeryEffective: ['Water', 'Grass', 'Dragon'],
     withoutEffect: []
@@ -38,7 +38,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fire', 'Ice', 'Poison', 'Flying', 'Bug'],
     resistantTo: ['Ground', 'Water', 'Grass', 'Electric'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Water', 'Ground', 'Rock'],
     notVeryEffective: ['Poison', 'Flying', 'Bug', 'Steel', 'Fire', 'Grass', 'Dragon'],
     withoutEffect: []
@@ -49,7 +49,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Ground'],
     resistantTo: ['Flying', 'Steel', 'Electric'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Flying', 'Water'],
     notVeryEffective: ['Grass', 'Electric', 'Dragon'],
     withoutEffect: ['Ground']
@@ -60,7 +60,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fighting', 'Rock', 'Steel', 'Fire'],
     resistantTo: ['Ice'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Flying', 'Ground', 'Grass', 'Dragon'],
     notVeryEffective: ['Steel', 'Fire', 'Water', 'Ice'],
     withoutEffect: []
@@ -71,7 +71,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Flying', 'Psychic', 'Fairy'],
     resistantTo: ['Rock', 'Bug', 'Dark'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Normal', 'Rock', 'Steel', 'Ice', 'Dark'],
     notVeryEffective: ['Flying', 'Poison', 'Bug', 'Psychic', 'Fairy'],
     withoutEffect: ['Ghost']
@@ -82,7 +82,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Ground', 'Psychic'],
     resistantTo: ['Fighting', 'Poison', 'Bug', 'Grass', 'Fairy'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Grass', 'Fairy'],
     notVeryEffective: ['Poison', 'Ground', 'Rock', 'Ghost'],
     withoutEffect: ['Steel']
@@ -93,7 +93,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Water', 'Grass', 'Ice'],
     resistantTo: ['Poison', 'Rock'],
-    inmuneTo: ['Electric'],
+    ImmuneTo: ['Electric'],
     superEffective: ['Poison', 'Rock', 'Steel', 'Fire', 'Electric'],
     notVeryEffective: ['Bug', 'Grass'],
     withoutEffect: ['Flying']
@@ -104,7 +104,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Rock', 'Electric', 'Ice'],
     resistantTo: ['Bug', 'Grass', 'Fighting'],
-    inmuneTo: ['Ground'],
+    ImmuneTo: ['Ground'],
     superEffective: ['Fighting', 'Bug', 'Grass'],
     notVeryEffective: ['Rock', 'Steel', 'Electric'],
     withoutEffect: []
@@ -115,7 +115,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Bug', 'Ghost', 'Dark'],
     resistantTo: ['Fighting', 'Psychic'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Fighting', 'Poison'],
     notVeryEffective: ['Steel', 'Psychic'],
     withoutEffect: ['Dark']
@@ -126,7 +126,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Flying', 'Rock', 'Fire'],
     resistantTo: ['Fighting', 'Ground', 'Grass'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Grass', 'Psychic', 'Dark'],
     notVeryEffective: ['Fighting', 'Flying', 'Poison', 'Ghost', 'Steel', 'Fire', 'Fairy'],
     withoutEffect: []
@@ -137,7 +137,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fighting', 'Ground', 'Steel', 'Water', 'Grass'],
     resistantTo: ['Normal', 'Flying', 'Poison', 'Fire'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Flying', 'Bug', 'Fire', 'Ice'],
     notVeryEffective: ['Fighting', 'Ground', 'Steel'],
     withoutEffect: []
@@ -148,7 +148,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Ghost', 'Dark'],
     resistantTo: ['Poison', 'Bug'],
-    inmuneTo: ['Normal', 'Fighting'],
+    ImmuneTo: ['Normal', 'Fighting'],
     superEffective: ['Ghost', 'Psychic'],
     notVeryEffective: ['Dark'],
     withoutEffect: ['Normal']
@@ -159,7 +159,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fighting', 'Bug', 'Fairy'],
     resistantTo: ['Ghost', 'Dark'],
-    inmuneTo: ['Psychic'],
+    ImmuneTo: ['Psychic'],
     superEffective: ['Ghost', 'Psychic'],
     notVeryEffective: ['Fighting', 'Dark', 'Fairy'],
     withoutEffect: []
@@ -170,7 +170,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Ice', 'Dragon', 'Fairy'],
     resistantTo: ['Fire', 'Water', 'Grass', 'Electric'],
-    inmuneTo: [],
+    ImmuneTo: [],
     superEffective: ['Dragon'],
     notVeryEffective: ['Steel'],
     withoutEffect: ['Fairy']
@@ -181,7 +181,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Fighting', 'Ground', 'Fire'],
     resistantTo: ['Normal', 'Flying', 'Rock', 'Bug', 'Steel', 'Grass', 'Psychic', 'Ice', 'Dragon', 'Fairy'],
-    inmuneTo: ['Poison'],
+    ImmuneTo: ['Poison'],
     superEffective: ['Rock', 'Ice', 'Fairy'],
     notVeryEffective: ['Steel', 'Fire', 'Water', 'Electric'],
     withoutEffect: []
@@ -192,7 +192,7 @@ export const types = [
     icon: '',
     weaknessTo: ['Poison', 'Steel'],
     resistantTo: ['Fighting', 'Bug', 'Dark'],
-    inmuneTo: ['Dragon'],
+    ImmuneTo: ['Dragon'],
     superEffective: ['Fighting', 'Dragon', 'Dark'],
     notVeryEffective: ['Poison', 'Steel', 'Fire'],
     withoutEffect: []

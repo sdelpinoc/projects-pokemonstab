@@ -19,19 +19,19 @@ const TypesList = ({ types, section }) => {
   return (
     <div className={`typesList ${section}`}>
       {
-        ((section === 'typesSuperWeaknessTo') && <img src="./img/pokemon/stadistics/25px-X4.png" />)
+        ((section === 'typesSuperWeaknessTo') && <img src="./img/pokemon/statistics/25px-X4.png" />)
       }
       {
-        ((section === 'typesWeaknessTo') && <img src="./img/pokemon/stadistics/25px-X2.png" />)
+        ((section === 'typesWeaknessTo') && <img src="./img/pokemon/statistics/25px-X2.png" />)
       }
       {
-        ((section === 'typesResistantTo') && <img src="./img/pokemon/stadistics/25px-1-2.png" />)
+        ((section === 'typesResistantTo') && <img src="./img/pokemon/statistics/25px-1-2.png" />)
       }
       {
-        ((section === 'typesSuperResistantTo') && <img src="./img/pokemon/stadistics/25px-1-4.png" />)
+        ((section === 'typesSuperResistantTo') && <img src="./img/pokemon/statistics/25px-1-4.png" />)
       }
       {
-        ((section === 'typesInmuneTo') && <img src="./img/pokemon/stadistics/25px-X0.png" />)
+        ((section === 'typesImmuneTo') && <img src="./img/pokemon/statistics/25px-X0.png" />)
       }
       {
         (types !== undefined && types.length > 0)
