@@ -333,7 +333,6 @@ export const usePokemonStore = () => {
 
     pokemonList = matchingPokemon.slice(0, 10)
     pokemonListTotal = matchingPokemon.length
-    console.log(pokemonListTotal)
 
     const pokemonListWithImg = await Promise.all(pokemonList.map(async pokemon => {
       const { ndex, name, forImg } = pokemon
