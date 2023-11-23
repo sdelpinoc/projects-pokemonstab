@@ -19,7 +19,6 @@ export function SettingsProvider ({ children }) {
 
   const initialLanguage = (() => {
     const persistedState = window.localStorage.getItem('__language__')
-    console.log({ persistedState })
     if (persistedState) return persistedState
 
     return LANGUAGE_DEFAULT
