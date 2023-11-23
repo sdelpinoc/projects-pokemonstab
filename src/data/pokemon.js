@@ -2239,14 +2239,26 @@ export const pokemon = [
   {
     ndex: '382',
     name: 'Kyogre',
-    form: 'Kyogre',
+    types: ['Water']
+  },
+  {
+    ndex: '382',
+    name: 'Kyogre',
+    forImg: 'Primal',
+    form: 'Primal Kyogre',
     types: ['Water']
   },
   {
     ndex: '383',
     name: 'Groudon',
-    form: 'Groudon',
     types: ['Ground']
+  },
+  {
+    ndex: '383',
+    name: 'Groudon',
+    forImg: 'Primal',
+    form: 'Primal Groudon',
+    types: ['Ground', 'Fire']
   },
   {
     ndex: '384',
@@ -3312,7 +3324,7 @@ export const pokemon = [
     ndex: '555',
     name: 'Darmanitan',
     forImg: 'Galar-Zen',
-    form: 'Galarian Zen Mode',
+    form: 'Zen Mode',
     types: ['Ice', 'Fire']
   },
   {
@@ -4940,6 +4952,13 @@ export const pokemon = [
     types: ['Psychic', 'Ghost']
   },
   {
+    ndex: '800',
+    name: 'Necrozma',
+    forImg: 'Ultra',
+    form: 'Ultra-Necrozma',
+    types: ['Psychic', 'Dragon']
+  },
+  {
     ndex: '801',
     name: 'Magearna',
     types: ['Steel', 'Fairy']
@@ -5429,7 +5448,7 @@ export const pokemon = [
     ndex: '888',
     name: 'Zacian',
     forImg: 'Hero',
-    form: 'Hero of Many Battles',
+    form: 'Zacian Hero of Many Battles',
     types: ['Fairy']
   },
   {
@@ -5442,7 +5461,7 @@ export const pokemon = [
     ndex: '889',
     name: 'Zamazenta',
     forImg: 'Hero',
-    form: 'Hero of Many Battles',
+    form: 'Zamazenta Hero of Many Battles',
     types: ['Fighting']
   },
   {

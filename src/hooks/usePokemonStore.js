@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux'
 
-import { types as typesDB } from '../data/types'
+import { types as typesDB } from '../data/types.js'
 import { pokemon as pokemonDB } from '../data/pokemon'
 
 import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onLoadImmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList } from '../store/slices/pokemonSlice'

@@ -1,0 +1,42 @@
+export const typesTranslation = {
+  en: {
+    Steel: 'Steel',
+    Water: 'Water',
+    Bug: 'Bug',
+    Dragon: 'Dragon',
+    Electric: 'Electric',
+    Ghost: 'Ghost',
+    Fire: 'Fire',
+    Fairy: 'Fairy',
+    Ice: 'Ice',
+    Fighting: 'Fighting',
+    Normal: 'Normal',
+    Grass: 'Grass',
+    Psychic: 'Psychic',
+    Rock: 'Rock',
+    Dark: 'Dark',
+    Ground: 'Ground',
+    Poison: 'Poison',
+    Flying: 'Flying'
+  },
+  es: {
+    Steel: 'Acero',
+    Water: 'Agua',
+    Bug: 'Bicho',
+    Dragon: 'Dragón',
+    Electric: 'Eléctrico',
+    Ghost: 'Fantasma',
+    Fire: 'Fuego',
+    Fairy: 'Hada',
+    Ice: 'Hielo',
+    Fighting: 'Lucha',
+    Normal: 'Normal',
+    Grass: 'Planta',
+    Psychic: 'Psíquico',
+    Rock: 'Roca',
+    Dark: 'Siniestro',
+    Ground: 'Tierra',
+    Poison: 'Veneno',
+    Flying: 'Volador'
+  }
+}

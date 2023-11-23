@@ -1,13 +1,14 @@
 import { useState } from 'react'
 
-import { types } from '../data/types.js'
-
 import { usePokemonStore } from '../hooks/usePokemonStore'
 
 import TypesList from './TypesList'
 import PokemonResultSearch from './PokemonResultSearch'
+import { types } from '../data/types'
+import { useSettings } from '../hooks/useSettings'
 
 const TypesSection = () => {
+  const { translationTexts } = useSettings()
   const {
     selectedTypes,
     setActiveType,
@@ -39,7 +40,7 @@ const TypesSection = () => {
 
   return (
     <div className="typesSection">
-      <h3 aria-label="typesSectionTitle">Search the Pokemon:</h3>
+      <h3 aria-label="typesSectionTitle">{translationTexts['search-text']}:</h3>
       <div className="containerPokemonSearch">
         <input
           className="pokemonSearch"
@@ -56,13 +57,13 @@ const TypesSection = () => {
         pokemonSearch={pokemonSearch}
         setPokemonSearch={setPokemonSearch}
       />
-      <h3>Or select the types:</h3>
+      <h3>{translationTexts['sub-search-text']}:</h3>
       <TypesList types={types} section={'TypesSection'} />
-      <h5>Selected types:</h5>
+      <h5>{translationTexts['selected-text']}:</h5>
       <TypesList types={selectedTypes} section={'SelectedType'} />
       <div className="actionsButton">
-        <button onClick={() => { onSearchInformation() }} aria-label="search">Search</button>
-        <button onClick={() => { removeAllInformation() }} aria-label="clear">Clear</button>
+        <button onClick={() => { onSearchInformation() }} aria-label="search">{translationTexts.buttonSearch}</button>
+        <button onClick={() => { removeAllInformation() }} aria-label="clear">{translationTexts.buttonClear}</button>
       </div>
     </div>
   )

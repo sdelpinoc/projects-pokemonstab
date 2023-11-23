@@ -1,0 +1,402 @@
+export const types = {
+  en: [
+    {
+      name: 'Normal',
+      className: 'type-normal',
+      icon: '',
+      weaknessTo: ['Fighting'],
+      resistantTo: [],
+      ImmuneTo: ['Ghost'],
+      superEffective: [],
+      notVeryEffective: ['Rock', 'Steel'],
+      withoutEffect: ['Ghost']
+    },
+    {
+      name: 'Fire',
+      className: 'type-fire',
+      icon: '',
+      weaknessTo: ['Ground', 'Rock', 'Water'],
+      resistantTo: ['Bug', 'Steel', 'Fire', 'Grass', 'Ice', 'Fairy'],
+      ImmuneTo: [],
+      superEffective: ['Bug', 'Steel', 'Grass', 'Ice'],
+      notVeryEffective: ['Rock', 'Fire', 'Water', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Water',
+      className: 'type-water',
+      icon: '',
+      weaknessTo: ['Grass', 'Electric'],
+      resistantTo: ['Steel', 'Fire', 'Water', 'Ice'],
+      ImmuneTo: [],
+      superEffective: ['Ground', 'Rock', 'Fire'],
+      notVeryEffective: ['Water', 'Grass', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Grass',
+      className: 'type-grass',
+      icon: '',
+      weaknessTo: ['Fire', 'Ice', 'Poison', 'Flying', 'Bug'],
+      resistantTo: ['Ground', 'Water', 'Grass', 'Electric'],
+      ImmuneTo: [],
+      superEffective: ['Water', 'Ground', 'Rock'],
+      notVeryEffective: ['Poison', 'Flying', 'Bug', 'Steel', 'Fire', 'Grass', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Electric',
+      className: 'type-electric',
+      icon: '',
+      weaknessTo: ['Ground'],
+      resistantTo: ['Flying', 'Steel', 'Electric'],
+      ImmuneTo: [],
+      superEffective: ['Flying', 'Water'],
+      notVeryEffective: ['Grass', 'Electric', 'Dragon'],
+      withoutEffect: ['Ground']
+    },
+    {
+      name: 'Ice',
+      className: 'type-ice',
+      icon: '',
+      weaknessTo: ['Fighting', 'Rock', 'Steel', 'Fire'],
+      resistantTo: ['Ice'],
+      ImmuneTo: [],
+      superEffective: ['Flying', 'Ground', 'Grass', 'Dragon'],
+      notVeryEffective: ['Steel', 'Fire', 'Water', 'Ice'],
+      withoutEffect: []
+    },
+    {
+      name: 'Fighting',
+      className: 'type-fighting',
+      icon: '',
+      weaknessTo: ['Flying', 'Psychic', 'Fairy'],
+      resistantTo: ['Rock', 'Bug', 'Dark'],
+      ImmuneTo: [],
+      superEffective: ['Normal', 'Rock', 'Steel', 'Ice', 'Dark'],
+      notVeryEffective: ['Flying', 'Poison', 'Bug', 'Psychic', 'Fairy'],
+      withoutEffect: ['Ghost']
+    },
+    {
+      name: 'Poison',
+      className: 'type-poison',
+      icon: '',
+      weaknessTo: ['Ground', 'Psychic'],
+      resistantTo: ['Fighting', 'Poison', 'Bug', 'Grass', 'Fairy'],
+      ImmuneTo: [],
+      superEffective: ['Grass', 'Fairy'],
+      notVeryEffective: ['Poison', 'Ground', 'Rock', 'Ghost'],
+      withoutEffect: ['Steel']
+    },
+    {
+      name: 'Ground',
+      className: 'type-ground',
+      icon: '',
+      weaknessTo: ['Water', 'Grass', 'Ice'],
+      resistantTo: ['Poison', 'Rock'],
+      ImmuneTo: ['Electric'],
+      superEffective: ['Poison', 'Rock', 'Steel', 'Fire', 'Electric'],
+      notVeryEffective: ['Bug', 'Grass'],
+      withoutEffect: ['Flying']
+    },
+    {
+      name: 'Flying',
+      className: 'type-flying',
+      icon: '',
+      weaknessTo: ['Rock', 'Electric', 'Ice'],
+      resistantTo: ['Bug', 'Grass', 'Fighting'],
+      ImmuneTo: ['Ground'],
+      superEffective: ['Fighting', 'Bug', 'Grass'],
+      notVeryEffective: ['Rock', 'Steel', 'Electric'],
+      withoutEffect: []
+    },
+    {
+      name: 'Psychic',
+      className: 'type-psychic',
+      icon: '',
+      weaknessTo: ['Bug', 'Ghost', 'Dark'],
+      resistantTo: ['Fighting', 'Psychic'],
+      ImmuneTo: [],
+      superEffective: ['Fighting', 'Poison'],
+      notVeryEffective: ['Steel', 'Psychic'],
+      withoutEffect: ['Dark']
+    },
+    {
+      name: 'Bug',
+      className: 'type-bug',
+      icon: '',
+      weaknessTo: ['Flying', 'Rock', 'Fire'],
+      resistantTo: ['Fighting', 'Ground', 'Grass'],
+      ImmuneTo: [],
+      superEffective: ['Grass', 'Psychic', 'Dark'],
+      notVeryEffective: ['Fighting', 'Flying', 'Poison', 'Ghost', 'Steel', 'Fire', 'Fairy'],
+      withoutEffect: []
+    },
+    {
+      name: 'Rock',
+      className: 'type-rock',
+      icon: '',
+      weaknessTo: ['Fighting', 'Ground', 'Steel', 'Water', 'Grass'],
+      resistantTo: ['Normal', 'Flying', 'Poison', 'Fire'],
+      ImmuneTo: [],
+      superEffective: ['Flying', 'Bug', 'Fire', 'Ice'],
+      notVeryEffective: ['Fighting', 'Ground', 'Steel'],
+      withoutEffect: []
+    },
+    {
+      name: 'Ghost',
+      className: 'type-ghost',
+      icon: '',
+      weaknessTo: ['Ghost', 'Dark'],
+      resistantTo: ['Poison', 'Bug'],
+      ImmuneTo: ['Normal', 'Fighting'],
+      superEffective: ['Ghost', 'Psychic'],
+      notVeryEffective: ['Dark'],
+      withoutEffect: ['Normal']
+    },
+    {
+      name: 'Dark',
+      className: 'type-dark',
+      icon: '',
+      weaknessTo: ['Fighting', 'Bug', 'Fairy'],
+      resistantTo: ['Ghost', 'Dark'],
+      ImmuneTo: ['Psychic'],
+      superEffective: ['Ghost', 'Psychic'],
+      notVeryEffective: ['Fighting', 'Dark', 'Fairy'],
+      withoutEffect: []
+    },
+    {
+      name: 'Dragon',
+      className: 'type-dragon',
+      icon: '',
+      weaknessTo: ['Ice', 'Dragon', 'Fairy'],
+      resistantTo: ['Fire', 'Water', 'Grass', 'Electric'],
+      ImmuneTo: [],
+      superEffective: ['Dragon'],
+      notVeryEffective: ['Steel'],
+      withoutEffect: ['Fairy']
+    },
+    {
+      name: 'Steel',
+      className: 'type-steel',
+      icon: '',
+      weaknessTo: ['Fighting', 'Ground', 'Fire'],
+      resistantTo: ['Normal', 'Flying', 'Rock', 'Bug', 'Steel', 'Grass', 'Psychic', 'Ice', 'Dragon', 'Fairy'],
+      ImmuneTo: ['Poison'],
+      superEffective: ['Rock', 'Ice', 'Fairy'],
+      notVeryEffective: ['Steel', 'Fire', 'Water', 'Electric'],
+      withoutEffect: []
+    },
+    {
+      name: 'Fairy',
+      className: 'type-fairy',
+      icon: '',
+      weaknessTo: ['Poison', 'Steel'],
+      resistantTo: ['Fighting', 'Bug', 'Dark'],
+      ImmuneTo: ['Dragon'],
+      superEffective: ['Fighting', 'Dragon', 'Dark'],
+      notVeryEffective: ['Poison', 'Steel', 'Fire'],
+      withoutEffect: []
+    }
+  ],
+  es: [
+    {
+      name: 'Normal',
+      className: 'type-normal',
+      icon: '',
+      weaknessTo: ['Lucha'],
+      resistantTo: [],
+      ImmuneTo: ['Fantasma'],
+      superEffective: [],
+      notVeryEffective: ['Roca', 'Acero'],
+      withoutEffect: ['Fantasma']
+    },
+    {
+      name: 'Fuego',
+      className: 'type-fire',
+      icon: '',
+      weaknessTo: ['Tierra', 'Roca', 'Agua'],
+      resistantTo: ['Bicho', 'Acero', 'Fuego', 'Planta', 'Hielo', 'Hada'],
+      ImmuneTo: [],
+      superEffective: ['Bicho', 'Acero', 'Planta', 'Hielo'],
+      notVeryEffective: ['Roca', 'Fuego', 'Agua', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Agua',
+      className: 'type-water',
+      icon: '',
+      weaknessTo: ['Planta', 'Eléctrico'],
+      resistantTo: ['Acero', 'Fuego', 'Agua', 'Hielo'],
+      ImmuneTo: [],
+      superEffective: ['Tierra', 'Roca', 'Fuego'],
+      notVeryEffective: ['Agua', 'Planta', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Planta',
+      className: 'type-grass',
+      icon: '',
+      weaknessTo: ['Fuego', 'Hielo', 'Veneno', 'Volador', 'Bicho'],
+      resistantTo: ['Tierra', 'Agua', 'Planta', 'Eléctrico'],
+      ImmuneTo: [],
+      superEffective: ['Agua', 'Tierra', 'Roca'],
+      notVeryEffective: ['Veneno', 'Volador', 'Bicho', 'Acero', 'Fuego', 'Planta', 'Dragon'],
+      withoutEffect: []
+    },
+    {
+      name: 'Eléctrico',
+      className: 'type-electric',
+      icon: '',
+      weaknessTo: ['Tierra'],
+      resistantTo: ['Volador', 'Acero', 'Eléctrico'],
+      ImmuneTo: [],
+      superEffective: ['Volador', 'Agua'],
+      notVeryEffective: ['Planta', 'Eléctrico', 'Dragon'],
+      withoutEffect: ['Tierra']
+    },
+    {
+      name: 'Hielo',
+      className: 'type-ice',
+      icon: '',
+      weaknessTo: ['Lucha', 'Roca', 'Acero', 'Fuego'],
+      resistantTo: ['Hielo'],
+      ImmuneTo: [],
+      superEffective: ['Volador', 'Tierra', 'Planta', 'Dragon'],
+      notVeryEffective: ['Acero', 'Fuego', 'Agua', 'Hielo'],
+      withoutEffect: []
+    },
+    {
+      name: 'Lucha',
+      className: 'type-fighting',
+      icon: '',
+      weaknessTo: ['Volador', 'Psíquico', 'Hada'],
+      resistantTo: ['Roca', 'Bicho', 'Siniestro'],
+      ImmuneTo: [],
+      superEffective: ['Normal', 'Roca', 'Acero', 'Hielo', 'Siniestro'],
+      notVeryEffective: ['Volador', 'Veneno', 'Bicho', 'Psíquico', 'Hada'],
+      withoutEffect: ['Fantasma']
+    },
+    {
+      name: 'Veneno',
+      className: 'type-poison',
+      icon: '',
+      weaknessTo: ['Tierra', 'Psíquico'],
+      resistantTo: ['Lucha', 'Veneno', 'Bicho', 'Planta', 'Hada'],
+      ImmuneTo: [],
+      superEffective: ['Planta', 'Hada'],
+      notVeryEffective: ['Veneno', 'Tierra', 'Roca', 'Fantasma'],
+      withoutEffect: ['Acero']
+    },
+    {
+      name: 'Tierra',
+      className: 'type-ground',
+      icon: '',
+      weaknessTo: ['Agua', 'Planta', 'Hielo'],
+      resistantTo: ['Veneno', 'Roca'],
+      ImmuneTo: ['Eléctrico'],
+      superEffective: ['Veneno', 'Roca', 'Acero', 'Fuego', 'Eléctrico'],
+      notVeryEffective: ['Bicho', 'Planta'],
+      withoutEffect: ['Volador']
+    },
+    {
+      name: 'Volador',
+      className: 'type-flying',
+      icon: '',
+      weaknessTo: ['Roca', 'Eléctrico', 'Hielo'],
+      resistantTo: ['Bicho', 'Planta', 'Lucha'],
+      ImmuneTo: ['Tierra'],
+      superEffective: ['Lucha', 'Bicho', 'Planta'],
+      notVeryEffective: ['Roca', 'Acero', 'Eléctrico'],
+      withoutEffect: []
+    },
+    {
+      name: 'Psíquico',
+      className: 'type-psychic',
+      icon: '',
+      weaknessTo: ['Bicho', 'Fantasma', 'Siniestro'],
+      resistantTo: ['Lucha', 'Psíquico'],
+      ImmuneTo: [],
+      superEffective: ['Lucha', 'Veneno'],
+      notVeryEffective: ['Acero', 'Psíquico'],
+      withoutEffect: ['Siniestro']
+    },
+    {
+      name: 'Bicho',
+      className: 'type-bug',
+      icon: '',
+      weaknessTo: ['Volador', 'Roca', 'Fuego'],
+      resistantTo: ['Lucha', 'Tierra', 'Planta'],
+      ImmuneTo: [],
+      superEffective: ['Planta', 'Psíquico', 'Siniestro'],
+      notVeryEffective: ['Lucha', 'Volador', 'Veneno', 'Fantasma', 'Acero', 'Fuego', 'Hada'],
+      withoutEffect: []
+    },
+    {
+      name: 'Roca',
+      className: 'type-rock',
+      icon: '',
+      weaknessTo: ['Lucha', 'Tierra', 'Acero', 'Agua', 'Planta'],
+      resistantTo: ['Normal', 'Volador', 'Veneno', 'Fuego'],
+      ImmuneTo: [],
+      superEffective: ['Volador', 'Bicho', 'Fuego', 'Hielo'],
+      notVeryEffective: ['Lucha', 'Tierra', 'Acero'],
+      withoutEffect: []
+    },
+    {
+      name: 'Fantasma',
+      className: 'type-ghost',
+      icon: '',
+      weaknessTo: ['Fantasma', 'Siniestro'],
+      resistantTo: ['Veneno', 'Bicho'],
+      ImmuneTo: ['Normal', 'Lucha'],
+      superEffective: ['Fantasma', 'Psíquico'],
+      notVeryEffective: ['Siniestro'],
+      withoutEffect: ['Normal']
+    },
+    {
+      name: 'Siniestro',
+      className: 'type-dark',
+      icon: '',
+      weaknessTo: ['Lucha', 'Bicho', 'Hada'],
+      resistantTo: ['Fantasma', 'Siniestro'],
+      ImmuneTo: ['Psíquico'],
+      superEffective: ['Fantasma', 'Psíquico'],
+      notVeryEffective: ['Lucha', 'Siniestro', 'Hada'],
+      withoutEffect: []
+    },
+    {
+      name: 'Dragon',
+      className: 'type-dragon',
+      icon: '',
+      weaknessTo: ['Hielo', 'Dragon', 'Hada'],
+      resistantTo: ['Fuego', 'Agua', 'Planta', 'Eléctrico'],
+      ImmuneTo: [],
+      superEffective: ['Dragon'],
+      notVeryEffective: ['Acero'],
+      withoutEffect: ['Hada']
+    },
+    {
+      name: 'Acero',
+      className: 'type-steel',
+      icon: '',
+      weaknessTo: ['Lucha', 'Tierra', 'Fuego'],
+      resistantTo: ['Normal', 'Volador', 'Roca', 'Bicho', 'Acero', 'Planta', 'Psíquico', 'Hielo', 'Dragon', 'Hada'],
+      ImmuneTo: ['Veneno'],
+      superEffective: ['Roca', 'Hielo', 'Hada'],
+      notVeryEffective: ['Acero', 'Fuego', 'Agua', 'Eléctrico'],
+      withoutEffect: []
+    },
+    {
+      name: 'Hada',
+      className: 'type-fairy',
+      icon: '',
+      weaknessTo: ['Veneno', 'Acero'],
+      resistantTo: ['Lucha', 'Bicho', 'Siniestro'],
+      ImmuneTo: ['Dragon'],
+      superEffective: ['Lucha', 'Dragon', 'Siniestro'],
+      notVeryEffective: ['Veneno', 'Acero', 'Fuego'],
+      withoutEffect: []
+    }
+  ]
+}
