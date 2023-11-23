@@ -56,11 +56,6 @@ body {
   color: var(--color);
 }
 
-body.dark {
-  background-color: var(--color-background-dark);
-  color: var(--color-dark);
-}
-
 h1 {
   margin: 0;
   padding: 8px 0;
@@ -164,10 +159,6 @@ header span + span {
   z-index: 1;
 }
 
-body.dark .pokemonResultSearch ul {
-  background-color: var(--color-background-dark);
-}
-
 .pokemonResultSearch ul li {
   border: 1px dotted #000;
   display: flex;
@@ -178,14 +169,6 @@ body.dark .pokemonResultSearch ul {
   padding: 8px 10px;
   margin: 0;
   /* border-radius: 4px; */
-}
-
-body.dark .pokemonResultSearch ul li {
-  border: 1px dotted var(--theme-border-color);
-}
-
-body.dark .pokemonResultSearch ul li:hover .paradox {
-  color: #1f2023;
 }
 
 .pokemonResultSearch ul li:hover {
@@ -216,7 +199,7 @@ body.dark .pokemonResultSearch ul li:hover .paradox {
   flex-basis: min-content;
 }
 
-.pokemonResultSearch span.containerTypes{
+.pokemonResultSearch span.containerTypes {
   flex-direction: column;
 }
 
@@ -431,10 +414,6 @@ label.paradox {
   color: #807870;
 }
 
-body.dark label.paradox {
-  color: rgb(139, 135, 131);
-}
-
 /* TypesSelectionSection */
 .typesList.activeTypes,
 .typesSelectionSection > .lastSelections {
@@ -445,6 +424,31 @@ body.dark label.paradox {
 
 .typesSelectionSection > .lastSelections {
   border: 1px dotted var(--pokedex-color-1);
+}
+
+@keyframes enhance-header {
+  to {
+    backdrop-filter: blur(5px);
+    color: black;
+  }
+}
+
+.typesList.activeTypes {
+  top: 15px;
+  position: sticky;
+  z-index: 1;
+
+  animation: enhance-header linear both;
+  animation-timeline: scroll(root block);
+  /* animation-range: exit-crossing 0% cover 100%; */
+}
+
+h5:has(+ .typesList.activeTypes) {
+  top: 0;
+  position: sticky;
+  z-index: 2;
+  animation: enhance-header linear both;
+  animation-timeline: scroll(root block);
 }
 
 .selectedPokemon {
@@ -597,11 +601,6 @@ dl.pokedex {
 .section h5,
 .section p {
   color: var(--color);
-}
-
-body.dark .section h5,
-body.dark .section p.dark {
-  color: var(--color-dark);
 }
 
 .section h5 {
@@ -763,4 +762,31 @@ body.dark .section p.dark {
   .typesSection > .typesList {
     margin: 5px 0;
   }
+}
+
+/* Dark mode */
+body.dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-dark);
+}
+
+body.dark .pokemonResultSearch ul {
+  background-color: var(--color-background-dark);
+}
+
+body.dark .pokemonResultSearch ul li {
+  border: 1px dotted var(--theme-border-color);
+}
+
+body.dark .pokemonResultSearch ul li:hover .paradox {
+  color: #1f2023;
+}
+
+body.dark label.paradox {
+  color: rgb(139, 135, 131);
+}
+
+body.dark .section h5,
+body.dark .section p.dark {
+  color: var(--color-dark);
 }
