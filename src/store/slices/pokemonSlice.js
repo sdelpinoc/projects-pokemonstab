@@ -3,6 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const pokemonSlice = createSlice({
   name: 'pokemon',
   initialState: {
+    pokemonListTotal: 0,
     matchingPokemon: [],
     // Maximum 2 types
     selectedTypes: [],
@@ -27,6 +28,9 @@ export const pokemonSlice = createSlice({
     loadingPokemonList: false
   },
   reducers: {
+    onSetPokemonListTotal: (state, action) => {
+      state.pokemonListTotal = action.payload
+    },
     onSetMatchingPokemon: (state, action) => {
       state.matchingPokemon = [...action.payload]
     },
@@ -126,6 +130,7 @@ export const pokemonSlice = createSlice({
 })
 
 export const {
+  onSetPokemonListTotal,
   onSetMatchingPokemon,
   onClearMatchingPokemon,
   onAddSelectedType,
