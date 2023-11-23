@@ -3,6 +3,8 @@ export const translation = {
     // TypesSection
     'search-text': 'Search the Pokemon',
     'sub-search-text': 'Or select the types',
+    'show-result': 'Showing',
+    'show-result-union': 'of',
     'selected-text': 'Selected types',
     buttonSearch: 'Search',
     buttonClear: 'Clear',
@@ -26,6 +28,8 @@ export const translation = {
     // TypesSection
     'search-text': 'Busca tu Pokémon',
     'sub-search-text': 'O selecciona los tipos',
+    'show-result': 'Mostrando',
+    'show-result-union': 'de',
     'selected-text': 'Tipos seleccionados',
     buttonSearch: 'Buscar',
     buttonClear: 'Limpiar',

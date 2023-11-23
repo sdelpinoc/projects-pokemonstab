@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { types as typesDB } from '../data/types.js'
 import { pokemon as pokemonDB } from '../data/pokemon'
 
-import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onLoadImmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList } from '../store/slices/pokemonSlice'
+import { onAddSelectedType, onLoadWithoutEffectTypes, onLoadNotVeryEffectiveTypes, onLoadResistantToTypes, onLoadSuperEffectiveTypes, onLoadWeaknessToTypes, onRemoveSelectedType, onSetActiveType, onLoadImmuneToTypes, onLoadSuperWeaknessToTypes, onLoadSuperResistantToTypes, onSetMatchingPokemon, onRemoveSelectedTypes, onRemoveAllInformation, onClearMatchingPokemon, onSetSelectedPokemon, onRemoveSelectedPokemon, onSetLoadingPokemonList, onSetPokemonListTotal } from '../store/slices/pokemonSlice'
 
 export const usePokemonStore = () => {
   const {
+    pokemonListTotal,
     matchingPokemon,
     selectedTypes,
     activeTypes,
@@ -312,6 +313,7 @@ export const usePokemonStore = () => {
     dispatch(onSetLoadingPokemonList(true))
     let matchingPokemon = []
     let pokemonList = []
+    let pokemonListTotal = 0
 
     if (pokemon.length === 0) {
       pokemon = '---'
@@ -330,6 +332,8 @@ export const usePokemonStore = () => {
     })
 
     pokemonList = matchingPokemon.slice(0, 10)
+    pokemonListTotal = matchingPokemon.length
+    console.log(pokemonListTotal)
 
     const pokemonListWithImg = await Promise.all(pokemonList.map(async pokemon => {
       const { ndex, name, forImg } = pokemon
@@ -359,6 +363,7 @@ export const usePokemonStore = () => {
     }))
 
     dispatch(onSetMatchingPokemon(pokemonListWithImg))
+    dispatch(onSetPokemonListTotal(pokemonListTotal))
 
     setTimeout(() => {
       dispatch(onSetLoadingPokemonList(false))
@@ -394,6 +399,7 @@ export const usePokemonStore = () => {
 
   return {
     // Attributes
+    pokemonListTotal,
     matchingPokemon,
     selectedTypes,
     activeTypes,

@@ -9,7 +9,7 @@ import { ShowInfo } from './ShowPokemonInfo.jsx'
 const PokemonResultSearch = ({ pokemonSearch, setPokemonSearch }) => {
   const { language, translationTexts } = useSettings()
   const {
-    matchingPokemon, selectedPokemon,
+    pokemonListTotal, matchingPokemon, selectedPokemon,
     setSelectedPokemon, addSelectedType, setActiveType, removeSelectedTypes, clearMatchingPokemon,
     loadingPokemonList
   } = usePokemonStore()
@@ -47,6 +47,9 @@ const PokemonResultSearch = ({ pokemonSearch, setPokemonSearch }) => {
   const pokemonResultSearch = <div className="pokemonResultSearch" style={{ display: (loadingPokemonList) ? 'none' : '' }}>
     <ul>
       <li onClick={handledRemoveList}>{translationTexts['list-text']}</li>
+      {
+        <li>{translationTexts['show-result']} {matchingPokemon.length} {translationTexts['show-result-union']} {pokemonListTotal}</li>
+      }
       {
         matchingPokemon.map(pokemon => (
           <li

@@ -186,8 +186,15 @@ header span + span {
 }
 
 .pokemonResultSearch ul li:nth-child(2) {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
+  justify-content: center;
+  border-radius: 4px;
+  color: var(--pokedex-color-1);
+  border: 0;
+}
+
+.pokemonResultSearch ul li:nth-child(2):hover {
+  background-color: inherit;
+  cursor: initial;
 }
 
 .pokemonResultSearch span.containerTypes,
@@ -776,6 +783,10 @@ body.dark .pokemonResultSearch ul {
 
 body.dark .pokemonResultSearch ul li {
   border: 1px dotted var(--theme-border-color);
+}
+
+body.dark .pokemonResultSearch ul li:nth-child(2) {
+  border: 0;
 }
 
 body.dark .pokemonResultSearch ul li:hover .paradox {
