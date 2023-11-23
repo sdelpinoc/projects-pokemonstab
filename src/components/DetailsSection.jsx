@@ -1,8 +1,11 @@
+import { typesTranslation } from '../data/types-translation'
 import { usePokemonStore } from '../hooks/usePokemonStore'
+import { useSettings } from '../hooks/useSettings'
 
 import TypesList from './TypesList'
 
 const DetailsSection = () => {
+  const { language, translationTexts } = useSettings()
   const {
     activeTypes,
     superEffectiveTypes,
@@ -15,18 +18,18 @@ const DetailsSection = () => {
       {activeTypes[0] !== undefined
         ? (
           <div className={`section section-${activeTypes[0].name.toLowerCase()}`}>
-            <h2>{activeTypes[0].name}</h2>
-            <h5>It&apos;s super effective against(x2):</h5>
+            <h2>{typesTranslation[language][activeTypes[0].name] ?? activeTypes[0].name}</h2>
+            <h5>{translationTexts['super-effective']}(x2):</h5>
             <TypesList
               types={superEffectiveTypes[0]}
               section={'typesSuperEffective'}
             />
-            <h5>It&apos;s not very effective against(x0.5):</h5>
+            <h5>{translationTexts['not-very-effective']}(x0.5):</h5>
             <TypesList
               types={notVeryEffectiveTypes[0]}
               section={'typesNotVeryEffective'}
             />
-            <h5>Has no effect against(x0):</h5>
+            <h5>{translationTexts['without-effect']}(x0):</h5>
             <TypesList
               types={withoutEffectTypes[0]}
               section={'typesWithoutEffectTo'}
@@ -35,17 +38,17 @@ const DetailsSection = () => {
           )
         : (
           <>
-            <h5>It&apos;s super effective against(x2):</h5>
+            <h5>{translationTexts['super-effective']}(x2):</h5>
             <TypesList
               types={superEffectiveTypes[0]}
               section={'typesSuperEffective'}
             />
-            <h5>It&apos;s not very effective against(x0.5):</h5>
+            <h5>{translationTexts['not-very-effective']}(x0.5):</h5>
             <TypesList
               types={notVeryEffectiveTypes[0]}
               section={'typesNotVeryEffective'}
             />
-            <h5>Has no effect against(x0):</h5>
+            <h5>{translationTexts['without-effect']}(x0):</h5>
             <TypesList
               types={withoutEffectTypes[0]}
               section={'typesWithoutEffectTo'}
@@ -55,18 +58,18 @@ const DetailsSection = () => {
       {activeTypes[1] !== undefined
         ? (
           <div className={`section section-${activeTypes[1].name.toLowerCase()}`}>
-            <h2>{activeTypes[1].name}</h2>
-            <h5>It&apos;s super effective against(x2):</h5>
+            <h2>{typesTranslation[language][activeTypes[1].name] ?? activeTypes[1].name}</h2>
+            <h5>{translationTexts['super-effective']}(x2):</h5>
             <TypesList
               types={superEffectiveTypes[1]}
               section={'typesSuperEffective'}
             />
-            <h5>It&apos;s not very effective against(x0.5):</h5>
+            <h5>{translationTexts['not-very-effective']}(x0.5):</h5>
             <TypesList
               types={notVeryEffectiveTypes[1]}
               section={'typesNotVeryEffective'}
             />
-            <h5>Has no effect against(x0):</h5>
+            <h5>{translationTexts['without-effect']}(x0):</h5>
             <TypesList
               types={withoutEffectTypes[1]}
               section={'typesWithoutEffectTo'}

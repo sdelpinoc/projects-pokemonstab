@@ -1,7 +1,13 @@
+import { typesTranslation } from '../data/types-translation'
 import { usePokemonStore } from '../hooks/usePokemonStore'
+import { useSettings } from '../hooks/useSettings'
 
 const TypesList = ({ types, section }) => {
+  const { language } = useSettings()
   const { addSelectedType, removeSelectedType } = usePokemonStore()
+  // console.log(language)
+  // console.log(typesTranslation[language])
+  // console.log(typesTranslation.language.Normal ?? '-')
 
   const typesSection = (section === 'TypesSection' && true)
   const showRemoveSpan = (section === 'SelectedType' && true)
@@ -35,17 +41,19 @@ const TypesList = ({ types, section }) => {
       }
       {
         (types !== undefined && types.length > 0)
-          ? types.map((type) => (
-            <span
-              key={type.name + '-' + section}
-              className={`type ${type.className}`}
+          ? types.map((type) => {
+            const { name, className } = type
+
+            return <span
+              key={name + '-' + section}
+              className={`type ${className}`}
               onClick={() => handleSelectType(type)}
               aria-label="TypesListType"
             >
-              {type.name}
-              {showRemoveSpan && <span className="removeType" key={type.name + '-remove'} onClick={() => { handleRemoveType(type) }}>x</span>}
+              {typesTranslation[language][name] ?? name}
+              {showRemoveSpan && <span className="removeType" key={name + '-remove'} onClick={() => { handleRemoveType(type) }}>x</span>}
             </span>
-          ))
+          })
           : (<p>-</p>)
       }
     </div>

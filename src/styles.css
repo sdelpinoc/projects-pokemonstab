@@ -6,6 +6,12 @@
 } */
 
 :root {
+  --color-background: #fafafa;
+  --color: #000;
+
+  --color-background-dark: #1f2023;
+  --color-dark: #efefef;
+
   --theme-border-color: #cecece;
   --theme-border-color--rgb: 206, 206, 206;
 
@@ -32,6 +38,13 @@
   --type-fairy-background-color: #f0b6bc;
 }
 
+/* @media (prefers-color-scheme: dark) {
+  body {
+    --color-background: #1f2023;
+    --color: #efefef;
+  }
+} */
+
 * {
   box-sizing: border-box;
 }
@@ -39,6 +52,13 @@
 body {
   font-family: sans-serif;
   /* height: 100vh; */
+  background-color: var(--color-background);
+  color: var(--color);
+}
+
+body.dark {
+  background-color: var(--color-background-dark);
+  color: var(--color-dark);
 }
 
 h1 {
@@ -54,6 +74,14 @@ h5 {
 
 h5 {
   margin-bottom: 0.5em;
+}
+
+header {
+  text-align: right;
+}
+
+header span + span {
+  margin-left: 10px;
 }
 
 .container {
@@ -136,6 +164,10 @@ h5 {
   z-index: 1;
 }
 
+body.dark .pokemonResultSearch ul {
+  background-color: var(--color-background-dark);
+}
+
 .pokemonResultSearch ul li {
   border: 1px dotted #000;
   display: flex;
@@ -146,6 +178,14 @@ h5 {
   padding: 8px 10px;
   margin: 0;
   /* border-radius: 4px; */
+}
+
+body.dark .pokemonResultSearch ul li {
+  border: 1px dotted var(--theme-border-color);
+}
+
+body.dark .pokemonResultSearch ul li:hover .paradox {
+  color: #1f2023;
 }
 
 .pokemonResultSearch ul li:hover {
@@ -173,6 +213,11 @@ h5 {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  flex-basis: min-content;
+}
+
+.pokemonResultSearch span.containerTypes{
+  flex-direction: column;
 }
 
 .pokemonResultSearch span.types {
@@ -367,6 +412,7 @@ h5 {
 
 .actionsButton > button {
   flex-basis: 100%;
+  margin-top: 8px;
   padding: 0.2em 0.5em;
   font-size: 1.5rem;
   /* border: 2px solid red; */
@@ -380,9 +426,13 @@ h5 {
   background-color: darkgray;
 }
 
-label.lang {
+label.paradox {
   font-size: 0.8rem;
   color: #807870;
+}
+
+body.dark label.paradox {
+  color: rgb(139, 135, 131);
 }
 
 /* TypesSelectionSection */
@@ -518,6 +568,10 @@ dl.pokedex {
   margin-top: 1em;
 }
 
+.weaknessResistImmuneTo.section h2 {
+  border-radius: 4px;
+}
+
 .weaknessResistImmuneTo.section h2 span {
   border: 0;
 }
@@ -537,11 +591,17 @@ dl.pokedex {
   background: #fff;
   font-size: 1em;
   font-weight: normal;
+  border-radius: 4px;
 }
 
 .section h5,
 .section p {
-  color: #000;
+  color: var(--color);
+}
+
+body.dark .section h5,
+body.dark .section p.dark {
+  color: var(--color-dark);
 }
 
 .section h5 {
