@@ -6206,5 +6206,112 @@ export const pokemon = [
     ndex: '1008',
     name: 'Miraidon',
     types: ['Electric', 'Dragon']
+  },
+  {
+    ndex: '1009',
+    name: 'Walking Wake',
+    lang: {
+      es: {
+        name: 'Ondulagua'
+      }
+    },
+    types: ['Water', 'Dragon']
+  },
+  {
+    ndex: '1010',
+    name: 'Iron Leaves',
+    lang: {
+      es: {
+        name: 'Ferroverdor'
+      }
+    },
+    types: ['Grass', 'Psychic']
+  },
+  {
+    ndex: '1011',
+    name: 'Dipplin',
+    types: ['Grass', 'Dragon']
+  },
+  {
+    ndex: '1012',
+    name: 'Poltchageist',
+    types: ['Grass', 'Ghost']
+  },
+  {
+    ndex: '1013',
+    name: 'Sinistcha',
+    types: ['Grass', 'Ghost']
+  },
+  {
+    ndex: '1014',
+    name: 'Okidogi',
+    types: ['Poison', 'Fighting']
+  },
+  {
+    ndex: '1015',
+    name: 'Munkidori',
+    types: ['Poison', 'Psychic']
+  },
+  {
+    ndex: '1016',
+    name: 'Fezandipiti',
+    types: ['Poison', 'Fairy']
+  },
+  {
+    ndex: '1017',
+    name: 'Ogerpon',
+    form: 'Teal Mask',
+    types: ['Grass']
+  },
+  {
+    ndex: '1017',
+    name: 'Ogerpon',
+    forImg: 'Wellspring_Mask',
+    form: 'Wellspring Mask',
+    types: ['Grass', 'Water']
+  },
+  {
+    ndex: '1017',
+    name: 'Ogerpon',
+    forImg: 'Hearthflame_Mask',
+    form: 'Hearthflame Mask',
+    types: ['Grass', 'Fire']
+  },
+  {
+    ndex: '1017',
+    name: 'Ogerpon',
+    forImg: 'Cornerstone_Mask',
+    form: 'Cornerstone Mask',
+    types: ['Grass', 'Rock']
+  },
+  {
+    ndex: '',
+    name: 'Archaludon',
+    types: ['Steel', 'Dragon']
+  },
+  {
+    ndex: '',
+    name: 'Raging Bolt',
+    lang: {
+      es: {
+        name: 'Electrofuria'
+      }
+    },
+    types: ['Electric', 'Dragon']
+  },
+  {
+    ndex: '',
+    name: 'Iron Crown',
+    lang: {
+      es: {
+        name: 'Ferrotesta'
+      }
+    },
+    types: ['Steel', 'Psychic']
   }
+  // {
+  //   ndex: '',
+  //   name: 'Terapagos',
+  //   types: ['Grass']
+  // }
 ]

@@ -115,6 +115,10 @@ export const formsTranslations = {
     'Droopy Form': 'Forma lánguida',
     'Stretchy Form': 'Forma recta',
     'Chest Form': 'Forma cofre',
-    'Roaming Form': 'Forma andante'
+    'Roaming Form': 'Forma andante',
+    'Teal Mask': 'Máscara turquesa',
+    'Wellspring Mask': 'Máscara fuente',
+    'Hearthflame Mask': 'Máscara horno',
+    'Cornerstone Mask': 'Máscara cimiento'
   }
 }
